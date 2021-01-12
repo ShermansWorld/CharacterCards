@@ -6,7 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="F:/Test Server/plugins/spigot-1.16.4.jar"/>
-	<classpathentry kind="lib" path="F:/Test Server/plugins/Towny-0.96.5.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Sean/Downloads/spigot-1.16.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Sean/Desktop/Plugins/Towny-0.96.5.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
