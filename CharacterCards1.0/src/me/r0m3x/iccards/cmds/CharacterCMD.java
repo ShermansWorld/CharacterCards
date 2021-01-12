@@ -224,6 +224,18 @@ public class CharacterCMD implements CommandExecutor {
               } 
               return true;
           }
+          if (args[1].equalsIgnoreCase("thief")) {
+              player.sendMessage(mess("&7[&a*&7] &7You chose the &eThief &7profession!"));
+              File f = new File("plugins" + File.separator + "ICCards" + File.separator + "users" + File.separator + player.getPlayer().getUniqueId() + ".yml");
+              YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(f);
+              yamlConfiguration.set("Profession", "Thief");
+              try {
+                yamlConfiguration.save(f);
+              } catch (IOException e) {
+                e.printStackTrace();
+              } 
+              return true;
+          }
         } else {
           player.sendMessage(mess("&7[&c*&7] &7You already chose a profession&e!&7 Your current profession: &e" + API.getProfession(player)));
           return true;
