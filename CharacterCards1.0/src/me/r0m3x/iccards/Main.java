@@ -69,7 +69,7 @@ public class Main extends JavaPlugin {
 		this.pm.registerEvents((Listener) new ProfessionJoin(), (Plugin) this);
 		this.pm.registerEvents((Listener) new CraftingRecipies(), (Plugin) this);
 		this.pm.registerEvents((Listener) new LockpickListener(), (Plugin) this);
-		//this.pm.registerEvents((Listener) new sneakListener(), (Plugin) this);
+		this.pm.registerEvents((Listener) new sneakListener(), (Plugin) this);
 
 		// Custom recipies
 		CraftingRecipies customRecipies = new CraftingRecipies();
