@@ -1,9 +1,9 @@
-name: LLCards
+name: CharacterCards
 main: me.r0m3x.iccards.Main
 version: 1.1
 api-version: 1.16
 author: Explode
-description: LLCards
+description: CharacterCards
 
 commands:
   character:
