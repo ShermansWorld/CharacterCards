@@ -11,15 +11,43 @@ import me.r0m3x.iccards.API;
 
 public class sneakListener implements Listener {
 	@EventHandler
-	public void PlayerToggleSneakEvent(PlayerToggleSneakEvent e) {
-		
+	public void PlayerToggleSneakEvent(PlayerToggleSneakEvent e) throws InterruptedException {
+
 		Player p = e.getPlayer();
-		if(API.getProfession(p).equalsIgnoreCase("Thief")) {
+		if (API.getProfession(p).equalsIgnoreCase("Thief")) {
 			if (e.isSneaking()) {
-		        p.setWalkSpeed(0.6F);
-		    }else {
-		    	p.setWalkSpeed(0.2F);
-		    }
+				TimeUnit.MILLISECONDS.sleep(6);
+				p.setWalkSpeed(0.25F);
+				TimeUnit.MILLISECONDS.sleep(6);
+				p.setWalkSpeed(0.3F);
+				TimeUnit.MILLISECONDS.sleep(6);
+				p.setWalkSpeed(0.35F);
+				TimeUnit.MILLISECONDS.sleep(6);
+				p.setWalkSpeed(0.4F);
+				TimeUnit.MILLISECONDS.sleep(6);
+				p.setWalkSpeed(0.45F);
+				TimeUnit.MILLISECONDS.sleep(6);
+				p.setWalkSpeed(0.5F);
+				TimeUnit.MILLISECONDS.sleep(6);
+				p.setWalkSpeed(0.55F);
+				TimeUnit.MILLISECONDS.sleep(6);
+				p.setWalkSpeed(0.6F);
+			} else {
+				TimeUnit.MILLISECONDS.sleep(9);
+				p.setWalkSpeed(0.5F);
+				TimeUnit.MILLISECONDS.sleep(9);
+				p.setWalkSpeed(0.45F);
+				TimeUnit.MILLISECONDS.sleep(9);
+				p.setWalkSpeed(0.4F);
+				TimeUnit.MILLISECONDS.sleep(9);
+				p.setWalkSpeed(0.35F);
+				TimeUnit.MILLISECONDS.sleep(9);
+				p.setWalkSpeed(0.3F);
+				TimeUnit.MILLISECONDS.sleep(9);
+				p.setWalkSpeed(0.25F);
+				TimeUnit.MILLISECONDS.sleep(9);
+				p.setWalkSpeed(0.2F);
+			}
 		}
 	}
 }
