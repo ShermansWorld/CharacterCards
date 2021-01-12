@@ -11,6 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.inventory.FurnaceSmeltEvent;
 import org.bukkit.inventory.FurnaceRecipe;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -18,6 +19,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import me.r0m3x.iccards.API;
 import me.r0m3x.iccards.Main;
 import me.r0m3x.iccards.cmds.CharacterCMD;
+import net.md_5.bungee.api.ChatColor;
 
 //import org.bukkit.inventory.FurnaceRecipe;
 //import org.bukkit.inventory.ItemStack;
@@ -59,10 +61,32 @@ public class CraftingRecipies implements Listener {
 		bakersBreadMeta.setLore(breadLore);
 		bakersBread.setItemMeta(bakersBreadMeta);
 		NamespacedKey key = new NamespacedKey(Main.getInstance(), Main.getInstance().getDescription().getName() + "2");
-		//FurnaceRecipe bakersBreadRecipe = new FurnaceRecipe(bakersBread, Material.WHEAT);
 		FurnaceRecipe bakersBreadRecipe = new FurnaceRecipe(key, bakersBread, Material.WHEAT, (float) 0.0, 30);
 		Main.getInstance().getServer().addRecipe(bakersBreadRecipe);
 		
+	}
+	
+	public static ItemStack getLockPick() {
+		ItemStack lockpick = new ItemStack(Material.IRON_HOE, 1);
+	    ItemMeta meta = lockpick.getItemMeta();
+	    meta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&e&lLockpick"));
+	    ArrayList<String> lore = new ArrayList<String>();
+	    //meta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ATTRIBUTES });
+	    lore.add(ChatColor.translateAlternateColorCodes('&',"A special tool to open locks, when used it"));
+	    lore.add(ChatColor.translateAlternateColorCodes('&',"has a chance of opening a locked door or chest."));
+	    meta.setLore(lore);
+	    lockpick.setItemMeta(meta);
+	    return (lockpick);
+	}
+	
+	public void lockpickRecipe() {
+		ItemStack lockpick = getLockPick();
+	    NamespacedKey key = new NamespacedKey(Main.getInstance(), Main.getInstance().getDescription().getName() + "3");
+	    ShapedRecipe lockpickRecipe = new ShapedRecipe(key, lockpick);
+	    lockpickRecipe.shape("@@ ", " % ", "%  ");
+	    lockpickRecipe.setIngredient('@', Material.IRON_INGOT);
+	    lockpickRecipe.setIngredient('%', Material.STICK);
+	    Main.getInstance().getServer().addRecipe(lockpickRecipe);
 	}
 	
 	
