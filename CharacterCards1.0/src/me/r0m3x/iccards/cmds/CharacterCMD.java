@@ -15,7 +15,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 public class CharacterCMD implements CommandExecutor {
-  String version = Bukkit.getPluginManager().getPlugin("LLCards").getDescription().getVersion();
+  String version = Bukkit.getPluginManager().getPlugin("CharacterCards").getDescription().getVersion();
   
   public CharacterCMD(Main plugin) {}
   
