@@ -1,11 +1,9 @@
 package me.r0m3x.iccards.listeners;
 
-import java.io.File;
 import me.r0m3x.iccards.API;
 import me.r0m3x.iccards.Main;
 import me.r0m3x.iccards.cmds.CharacterCMD;
 import org.bukkit.Bukkit;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -20,8 +18,6 @@ public class ProfessionJoin implements Listener {
   public void professionJoin(final PlayerJoinEvent e) {
     Player player = e.getPlayer();
     player.setInvulnerable(false);
-    File f = new File("plugins" + File.separator + "ICCards" + File.separator + "users" + File.separator + e.getPlayer().getUniqueId() + ".yml");
-    YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(f);
     Bukkit.getScheduler().runTaskLater((Plugin)Main.getInstance(), new Runnable() {
           public void run() {
             Player p = e.getPlayer();

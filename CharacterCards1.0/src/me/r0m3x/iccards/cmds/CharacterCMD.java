@@ -153,7 +153,6 @@ public class CharacterCMD implements CommandExecutor {
         Player target = Bukkit.getPlayerExact(args[1]);
         if (target != null) {
           File f = new File("plugins" + File.separator + "ICCards" + File.separator + "users" + File.separator + target.getPlayer().getUniqueId() + ".yml");
-          YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(f);
           if (f.exists()) {
             f.delete();
             player.sendMessage(mess("&7[&a*&7] &aDeleted &7" + target.getName() + "'s &aconfiguration file!"));
