@@ -34,7 +34,7 @@ public class LockpickListener implements Listener {
 		return ChatColor.translateAlternateColorCodes('&', message);
 	}
 	
-	PluginManager pm = Main.getInstance().getInstance().getServer().getPluginManager();
+	PluginManager pm = Main.getInstance().getServer().getPluginManager();
 
 	public static Map<String, Integer> lockpickMap = new HashMap<>();
 	

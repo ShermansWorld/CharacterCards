@@ -17,8 +17,6 @@ public class Card implements CommandExecutor {
     Player p = (Player)sender;
     if (cmd.getName().equalsIgnoreCase("card")) {
       if (args == null || args.length == 0) {
-        File f = new File("plugins" + File.separator + "ICCards" + File.separator + "users" + File.separator + p.getPlayer().getUniqueId() + ".yml");
-        YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(f);
         return true;
       } 
       if (args.length > 2) {
