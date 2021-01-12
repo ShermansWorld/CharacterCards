@@ -16,7 +16,7 @@ public class PlayerInteractEntity implements Listener {
     if (e.getRightClicked() instanceof Player) {
       Player player = e.getPlayer();
       Player target = (Player)e.getRightClicked();
-      if (player.getItemInHand().getType() == Material.PAPER)
+      if (player.getInventory().getItemInMainHand().getType() == Material.PAPER)
         return; 
       if (e.getRightClicked() instanceof Player && player.isSneaking() && e.getHand().equals(EquipmentSlot.HAND)) {
         File f = new File("plugins" + File.separator + "ICCards" + File.separator + "users" + File.separator + target.getPlayer().getUniqueId() + ".yml");
