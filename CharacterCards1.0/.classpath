@@ -6,7 +6,15 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="F:/Test Server/plugins/spigot-1.16.4.jar"/>
-	<classpathentry kind="lib" path="F:/Test Server/plugins/Towny-0.96.5.0.jar"/>
+	<classpathentry kind="lib" path="C:/Plugins/Towny-0.96.5.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Plugins/spigot-1.16.4.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
