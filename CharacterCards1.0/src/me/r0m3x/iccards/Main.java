@@ -6,6 +6,7 @@ import java.util.Calendar;
 import me.r0m3x.iccards.cmds.CharacterCMD;
 import me.r0m3x.iccards.cmds.Profession;
 import me.r0m3x.iccards.cmds.UUID;
+import me.r0m3x.iccards.listeners.ConsumableListener;
 import me.r0m3x.iccards.listeners.CraftingRecipies;
 import me.r0m3x.iccards.listeners.LockpickListener;
 import me.r0m3x.iccards.listeners.MakeFileonJoin;
@@ -64,11 +65,6 @@ public class Main extends JavaPlugin {
 	}
 
 	private void registerEvents() {
-		// Custom recipies
-		CraftingRecipies customRecipies = new CraftingRecipies();
-		customRecipies.breadRecipe();
-		customRecipies.doughRecipe();
-		customRecipies.lockpickRecipe();
 
 		this.pm.registerEvents((Listener) new MakeFileonJoin(), (Plugin) this);
 		this.pm.registerEvents((Listener) new PlayerInteractEntity(), (Plugin) this);
@@ -76,6 +72,13 @@ public class Main extends JavaPlugin {
 		this.pm.registerEvents((Listener) new CraftingRecipies(), (Plugin) this);
 		this.pm.registerEvents((Listener) new LockpickListener(), (Plugin) this);
 		this.pm.registerEvents((Listener) new SneakListener(), (Plugin) this);
+		this.pm.registerEvents((Listener) new ConsumableListener(), (Plugin) this);
+
+		// Custom recipies
+		CraftingRecipies customRecipies = new CraftingRecipies();
+		customRecipies.breadRecipe();
+		customRecipies.doughRecipe();
+		customRecipies.lockpickRecipe();
 	}
 
 	public void onDisable() {
