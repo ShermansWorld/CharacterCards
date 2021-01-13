@@ -7,6 +7,7 @@ import me.r0m3x.iccards.cmds.CharacterCMD;
 import me.r0m3x.iccards.cmds.Profession;
 import me.r0m3x.iccards.cmds.UUID;
 import me.r0m3x.iccards.listeners.CraftingRecipies;
+import me.r0m3x.iccards.listeners.EatListener;
 import me.r0m3x.iccards.listeners.LockpickListener;
 import me.r0m3x.iccards.listeners.MakeFileonJoin;
 import me.r0m3x.iccards.listeners.PlayerInteractEntity;
@@ -70,6 +71,7 @@ public class Main extends JavaPlugin {
 		this.pm.registerEvents((Listener) new CraftingRecipies(), (Plugin) this);
 		this.pm.registerEvents((Listener) new LockpickListener(), (Plugin) this);
 		this.pm.registerEvents((Listener) new sneakListener(), (Plugin) this);
+		this.pm.registerEvents((Listener) new EatListener(), (Plugin) this);
 
 		// Custom recipies
 		CraftingRecipies customRecipies = new CraftingRecipies();
