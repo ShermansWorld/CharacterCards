@@ -9,7 +9,7 @@ import org.bukkit.event.player.PlayerToggleSneakEvent;
 
 import me.r0m3x.iccards.API;
 
-public class sneakListener implements Listener {
+public class SneakListener implements Listener {
 	@EventHandler
 	public void PlayerToggleSneakEvent(PlayerToggleSneakEvent e) throws InterruptedException {
 

@@ -25,9 +25,8 @@ import net.md_5.bungee.api.ChatColor;
 
 public class CraftingRecipies implements Listener {
 	
-	private ItemStack wheat = new ItemStack(Material.WHEAT, 1);
-	
-	public static  ItemStack bakersBread = new ItemStack(Material.BREAD, 1);
+	ItemStack wheat = new ItemStack(Material.WHEAT, 1);
+	static ItemStack bakersBread = new ItemStack(Material.BREAD, 1);
 	
 	public boolean isBakersBread = false;
 	
