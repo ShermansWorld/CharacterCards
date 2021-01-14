@@ -165,7 +165,7 @@ public class CharacterCMD implements CommandExecutor {
         return true;
       } 
       if (args[0].equalsIgnoreCase("profession") && args.length == 1) {
-        player.sendMessage(mess("&7[&c*&7] &7You must enter a &eProfession&7! &7(&eBaker&7,&eFarmer&7,&eMiner&7,&eSoldier&7)"));
+        player.sendMessage(mess("&7[&c*&7] &7You must enter a &eProfession&7! &7(&eBaker&7,&eFarmer&7,&eMiner&7,&eSoldier&7,&eThief&7)"));
         return true;
       } 
       if (args[0].equalsIgnoreCase("profession") && args.length == 2) {

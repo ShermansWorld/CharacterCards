@@ -12,7 +12,7 @@ import me.r0m3x.iccards.listeners.LockpickListener;
 import me.r0m3x.iccards.listeners.MakeFileonJoin;
 import me.r0m3x.iccards.listeners.PlayerInteractEntity;
 import me.r0m3x.iccards.listeners.ProfessionJoin;
-import me.r0m3x.iccards.listeners.sneakListener;
+import me.r0m3x.iccards.listeners.SneakListener;
 import me.r0m3x.tabCompletion.CharTabCompletion;
 import me.r0m3x.tabCompletion.ProfessionTabCompletion;
 
@@ -65,19 +65,21 @@ public class Main extends JavaPlugin {
 	}
 
 	private void registerEvents() {
-		this.pm.registerEvents((Listener) new MakeFileonJoin(), (Plugin) this);
-		this.pm.registerEvents((Listener) new PlayerInteractEntity(), (Plugin) this);
-		this.pm.registerEvents((Listener) new ProfessionJoin(), (Plugin) this);
-		this.pm.registerEvents((Listener) new CraftingRecipies(), (Plugin) this);
-		this.pm.registerEvents((Listener) new LockpickListener(), (Plugin) this);
-		this.pm.registerEvents((Listener) new sneakListener(), (Plugin) this);
-		this.pm.registerEvents((Listener) new EatListener(), (Plugin) this);
-
+		
 		// Custom recipies
 		CraftingRecipies customRecipies = new CraftingRecipies();
 		customRecipies.breadRecipe();
 		customRecipies.doughRecipe();
 		customRecipies.lockpickRecipe();
+		
+		this.pm.registerEvents((Listener) new MakeFileonJoin(), (Plugin) this);
+		this.pm.registerEvents((Listener) new PlayerInteractEntity(), (Plugin) this);
+		this.pm.registerEvents((Listener) new ProfessionJoin(), (Plugin) this);
+		this.pm.registerEvents((Listener) new CraftingRecipies(), (Plugin) this);
+		this.pm.registerEvents((Listener) new LockpickListener(), (Plugin) this);
+		this.pm.registerEvents((Listener) new SneakListener(), (Plugin) this);
+		this.pm.registerEvents((Listener) new EatListener(), (Plugin) this);
+
 	}
 
 	public void onDisable() {

@@ -298,7 +298,7 @@ public class LockpickListener implements Listener {
                 		lockpickMap.put(p.getName(), 0);
                 	} else {
                 		if (lockpickMap.get(p.getName()) == 1) {
-                			p.sendMessage(mess("&7[&c*&7] &cYou are already trying to lockpick this!"));
+                			p.sendMessage(mess("&7[&c*&7] &cYou are already trying to lockpick something!"));
                 			return;
                 		}
                 	}
@@ -317,7 +317,7 @@ public class LockpickListener implements Listener {
                 		lockpickMap.put(p.getName(), 0);
                 	} else {
                 		if (lockpickMap.get(p.getName()) == 1) {
-                			p.sendMessage(mess("&7[&c*&7] &cYou are already trying to lockpick this!"));
+                			p.sendMessage(mess("&7[&c*&7] &cYou are already trying to lockpick something!"));
                 			return;
                 		}
                 	}
@@ -336,7 +336,7 @@ public class LockpickListener implements Listener {
                 		lockpickMap.put(p.getName(), 0);
                 	} else {
                 		if (lockpickMap.get(p.getName()) == 1) {
-                			p.sendMessage(mess("&7[&c*&7] &cYou are already trying to lockpick this!"));
+                			p.sendMessage(mess("&7[&c*&7] &cYou are already trying to lockpick something!"));
                 			return;
                 		}
                 	}
@@ -355,7 +355,7 @@ public class LockpickListener implements Listener {
                 		lockpickMap.put(p.getName(), 0);
                 	} else {
                 		if (lockpickMap.get(p.getName()) == 1) {
-                			p.sendMessage(mess("&7[&c*&7] &cYou are already trying to lockpick this!"));
+                			p.sendMessage(mess("&7[&c*&7] &cYou are already trying to lockpick something!"));
                 			return;
                 		}
                 	}
