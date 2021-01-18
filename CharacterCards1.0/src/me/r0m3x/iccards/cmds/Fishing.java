@@ -37,7 +37,7 @@ public class Fishing implements CommandExecutor {
 				int count = 0;
 				for (ItemStack item : p.getInventory().getContents()) {
 					if (item != null) {
-						if ((item.getType() == Material.COD || item.getType() == Material.SALMON) && item.getItemMeta().hasLore()) {
+						if ((item.getType() == Material.COD || item.getType() == Material.SALMON || item.getType() == Material.TROPICAL_FISH || item.getType() == Material.PUFFERFISH) && item.getItemMeta().hasLore()) {
 							ItemMeta meta = item.getItemMeta();
 							String worthLore = meta.getLore().get(2);
 							int itemAmount = item.getAmount();
