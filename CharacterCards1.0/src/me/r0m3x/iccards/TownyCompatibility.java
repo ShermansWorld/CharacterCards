@@ -1,4 +1,4 @@
-package me.r0m3x.iccards.listeners;
+package me.r0m3x.iccards;
 
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -12,6 +12,7 @@ import com.palmergames.bukkit.towny.object.TownBlock;
 import com.palmergames.bukkit.towny.object.TownyUniverse;
 import com.palmergames.bukkit.towny.object.WorldCoord;
 
+import me.r0m3x.iccards.listeners.LockpickListener;
 import net.md_5.bungee.api.ChatColor;
 
 public class TownyCompatibility {

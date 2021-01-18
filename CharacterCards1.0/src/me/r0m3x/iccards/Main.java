@@ -4,10 +4,13 @@ import java.io.File;
 import java.util.Calendar;
 
 import me.r0m3x.iccards.cmds.CharacterCMD;
+import me.r0m3x.iccards.cmds.Fishing;
 import me.r0m3x.iccards.cmds.Profession;
 import me.r0m3x.iccards.cmds.UUID;
+import me.r0m3x.iccards.listeners.BlockBreakListener;
 import me.r0m3x.iccards.listeners.CraftingRecipies;
 import me.r0m3x.iccards.listeners.EatListener;
+import me.r0m3x.iccards.listeners.FishingListener;
 import me.r0m3x.iccards.listeners.LockpickListener;
 import me.r0m3x.iccards.listeners.MakeFileonJoin;
 import me.r0m3x.iccards.listeners.PlayerInteractEntity;
@@ -15,6 +18,7 @@ import me.r0m3x.iccards.listeners.ProfessionJoin;
 import me.r0m3x.iccards.listeners.SneakListener;
 import me.r0m3x.tabCompletion.CharTabCompletion;
 import me.r0m3x.tabCompletion.ProfessionTabCompletion;
+import net.milkbowl.vault.economy.Economy;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -24,6 +28,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -36,6 +41,8 @@ public class Main extends JavaPlugin {
 	PluginManager pm = Bukkit.getPluginManager();
 
 	ConsoleCommandSender cs = Bukkit.getConsoleSender();
+	
+	public static Economy economy = null;
 
 	public static Main instance = null;
 
@@ -48,6 +55,9 @@ public class Main extends JavaPlugin {
     if (!usersfolder.exists())
       usersfolder.mkdirs(); 
     instance = this;
+	RegisteredServiceProvider<Economy> economyProvider = this.getServer().getServicesManager()
+			.getRegistration(net.milkbowl.vault.economy.Economy.class);
+	economy = economyProvider.getProvider();
     registerEvents();
     registerCommands();
     registerTabCompletion();
@@ -57,6 +67,7 @@ public class Main extends JavaPlugin {
 		getCommand("Character").setExecutor((CommandExecutor) new CharacterCMD(this));
 		getCommand("UUID").setExecutor((CommandExecutor) new UUID(this));
 		getCommand("Profession").setExecutor((CommandExecutor) new Profession(this));
+		getCommand("Fishing").setExecutor((CommandExecutor) new Fishing(this));
 	}
 
 	private void registerTabCompletion() {
@@ -71,6 +82,13 @@ public class Main extends JavaPlugin {
 		customRecipies.breadRecipe();
 		customRecipies.doughRecipe();
 		customRecipies.lockpickRecipe();
+		customRecipies.myceliumRecipe();
+		customRecipies.podzolRecipeAcacia();
+		customRecipies.podzolRecipeBirch();
+		customRecipies.podzolRecipeDarkOak();
+		customRecipies.podzolRecipeJungle();
+		customRecipies.podzolRecipeSpruce();
+		customRecipies.podzolRecipeOak();
 		
 		this.pm.registerEvents((Listener) new MakeFileonJoin(), (Plugin) this);
 		this.pm.registerEvents((Listener) new PlayerInteractEntity(), (Plugin) this);
@@ -79,6 +97,8 @@ public class Main extends JavaPlugin {
 		this.pm.registerEvents((Listener) new LockpickListener(), (Plugin) this);
 		this.pm.registerEvents((Listener) new SneakListener(), (Plugin) this);
 		this.pm.registerEvents((Listener) new EatListener(), (Plugin) this);
+		this.pm.registerEvents((Listener) new BlockBreakListener(), (Plugin) this);
+		this.pm.registerEvents((Listener) new FishingListener(), (Plugin) this);
 
 	}
 

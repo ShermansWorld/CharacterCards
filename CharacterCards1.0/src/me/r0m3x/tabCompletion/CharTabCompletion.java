@@ -41,6 +41,7 @@ public class CharTabCompletion implements TabCompleter {
 		
 		if (args.length == 2 && args[0].toUpperCase().contentEquals("PROFESSION")) {
 			completions.add("Thief");
+			completions.add("Farmer");
 			completions.add("Fisherman");
 			completions.add("Miner");
 			completions.add("Soldier");

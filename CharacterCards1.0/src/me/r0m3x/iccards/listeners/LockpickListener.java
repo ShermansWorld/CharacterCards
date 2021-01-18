@@ -27,6 +27,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import me.r0m3x.iccards.API;
 import me.r0m3x.iccards.Main;
+import me.r0m3x.iccards.TownyCompatibility;
 
 public class LockpickListener implements Listener {
 
@@ -205,7 +206,7 @@ public class LockpickListener implements Listener {
 		
 	}
 	
-	static void openChest(Block b, World w, Player p) {
+	public static void openChest(Block b, World w, Player p) {
             b.setMetadata("trapdoor", new FixedMetadataValue(Main.getInstance(), "trapdoor"));
             p.getInventory().clear(p.getInventory().getHeldItemSlot());
             new BukkitRunnable() {
@@ -220,7 +221,7 @@ public class LockpickListener implements Listener {
             }.runTaskLater(Main.getInstance(), 40);
 	}
 	
-	static void pickFailed(Player p) {
+	public static void pickFailed(Player p) {
 		p.getInventory().clear(p.getInventory().getHeldItemSlot());
 		new BukkitRunnable() {
             @Override public void run() {

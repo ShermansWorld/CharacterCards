@@ -13,6 +13,7 @@ import org.bukkit.event.inventory.FurnaceSmeltEvent;
 import org.bukkit.inventory.FurnaceRecipe;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import me.r0m3x.iccards.API;
@@ -91,6 +92,71 @@ public class CraftingRecipies implements Listener {
 		lockpickRecipe.setIngredient('%', Material.STICK);
 		Main.getInstance().getServer().addRecipe(lockpickRecipe);
 	}
+	
+	public void myceliumRecipe() {
+		ItemStack mycelium = new ItemStack(Material.MYCELIUM, 1);
+		NamespacedKey key = new NamespacedKey(Main.getInstance(), Main.getInstance().getDescription().getName() + "4");
+		ShapelessRecipe myceliumRecipe = new ShapelessRecipe(key, mycelium);
+		myceliumRecipe.addIngredient(Material.DIRT);
+		myceliumRecipe.addIngredient(Material.BROWN_MUSHROOM);
+		myceliumRecipe.addIngredient(Material.RED_MUSHROOM);
+		Main.getInstance().getServer().addRecipe(myceliumRecipe);
+	}
+	
+	public void podzolRecipeOak() {
+		ItemStack podzol = new ItemStack(Material.PODZOL, 1);
+		NamespacedKey key = new NamespacedKey(Main.getInstance(), Main.getInstance().getDescription().getName() + "5");
+		ShapelessRecipe podzolRecipe = new ShapelessRecipe(key, podzol);
+		podzolRecipe.addIngredient(Material.DIRT);
+		podzolRecipe.addIngredient(Material.OAK_LEAVES);
+		Main.getInstance().getServer().addRecipe(podzolRecipe);
+	}
+	
+	public void podzolRecipeBirch() {
+		ItemStack podzol = new ItemStack(Material.PODZOL, 1);
+		NamespacedKey key = new NamespacedKey(Main.getInstance(), Main.getInstance().getDescription().getName() + "6");
+		ShapelessRecipe podzolRecipe = new ShapelessRecipe(key, podzol);
+		podzolRecipe.addIngredient(Material.DIRT);
+		podzolRecipe.addIngredient(Material.BIRCH_LEAVES);
+		Main.getInstance().getServer().addRecipe(podzolRecipe);
+	}
+	
+	public void podzolRecipeAcacia() {
+		ItemStack podzol = new ItemStack(Material.PODZOL, 1);
+		NamespacedKey key = new NamespacedKey(Main.getInstance(), Main.getInstance().getDescription().getName() + "7");
+		ShapelessRecipe podzolRecipe = new ShapelessRecipe(key, podzol);
+		podzolRecipe.addIngredient(Material.DIRT);
+		podzolRecipe.addIngredient(Material.ACACIA_LEAVES);
+		Main.getInstance().getServer().addRecipe(podzolRecipe);
+	}
+	
+	public void podzolRecipeDarkOak() {
+		ItemStack podzol = new ItemStack(Material.PODZOL, 1);
+		NamespacedKey key = new NamespacedKey(Main.getInstance(), Main.getInstance().getDescription().getName() + "8");
+		ShapelessRecipe podzolRecipe = new ShapelessRecipe(key, podzol);
+		podzolRecipe.addIngredient(Material.DIRT);
+		podzolRecipe.addIngredient(Material.DARK_OAK_LEAVES);
+		Main.getInstance().getServer().addRecipe(podzolRecipe);
+	}
+	
+	public void podzolRecipeJungle() {
+		ItemStack podzol = new ItemStack(Material.PODZOL, 1);
+		NamespacedKey key = new NamespacedKey(Main.getInstance(), Main.getInstance().getDescription().getName() + "9");
+		ShapelessRecipe podzolRecipe = new ShapelessRecipe(key, podzol);
+		podzolRecipe.addIngredient(Material.DIRT);
+		podzolRecipe.addIngredient(Material.JUNGLE_LEAVES);
+		Main.getInstance().getServer().addRecipe(podzolRecipe);
+	}
+	
+	public void podzolRecipeSpruce() {
+		ItemStack podzol = new ItemStack(Material.PODZOL, 1);
+		NamespacedKey key = new NamespacedKey(Main.getInstance(), Main.getInstance().getDescription().getName() + "10");
+		ShapelessRecipe podzolRecipe = new ShapelessRecipe(key, podzol);
+		podzolRecipe.addIngredient(Material.DIRT);
+		podzolRecipe.addIngredient(Material.SPRUCE_LEAVES);
+		Main.getInstance().getServer().addRecipe(podzolRecipe);
+	}
+
 
 	@EventHandler
 	public void FurnaceSmeltListener(FurnaceSmeltEvent e) {
@@ -131,6 +197,16 @@ public class CraftingRecipies implements Listener {
 					e.setCancelled(true);
 					p.sendMessage(CharacterCMD.mess("&7[&c*&7] &cYou must be a &6Baker &cto craft this"));
 					p.sendMessage(CharacterCMD.mess("&7[&c*&7] &7Type &e/char profession &7to choose a profession"));
+				}
+			}
+			return;
+		} else if (e.getCurrentItem().getType() == Material.PODZOL || e.getCurrentItem().getType() == Material.MYCELIUM) {
+			if (e.getWhoClicked() instanceof Player) {
+				Player p = (Player) e.getWhoClicked();
+				if (!API.getProfession(p).equalsIgnoreCase("Farmer")) {
+					e.setCancelled(true);
+					p.sendMessage(CharacterCMD.mess("&7[&c*&7] &cYou must be a &6Farmer &cto craft this"));
+					return;
 				}
 			}
 		}

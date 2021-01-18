@@ -8,5 +8,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Plugins/spigot-1.16.4.jar"/>
 	<classpathentry kind="lib" path="C:/Plugins/Towny-0.96.5.0.jar"/>
+	<classpathentry kind="lib" path="C:/Plugins/Vault.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

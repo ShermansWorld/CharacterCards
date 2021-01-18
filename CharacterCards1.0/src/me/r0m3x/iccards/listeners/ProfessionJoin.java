@@ -18,34 +18,50 @@ public class ProfessionJoin implements Listener {
   public void professionJoin(final PlayerJoinEvent e) {
     Player player = e.getPlayer();
     player.setInvulnerable(false);
+    PotionEffect haste1 = new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 0);
     Bukkit.getScheduler().runTaskLater((Plugin)Main.getInstance(), new Runnable() {
           public void run() {
             Player p = e.getPlayer();
             if (API.getProfession(p).equalsIgnoreCase("Thief")) {
-              p.sendMessage(CharacterCMD.mess("&8[&a*&8] &eYour current profession is &6&lThief&7. \n&eYou now have a &a&lHIGHER &echance to successfully lockpick \ndoors/trapdoors/gates&7,&e and now have &c&lLOWER &ehearts&7. \n&e(&c8.5 &ehearts instead of &c10&e)"));
+              p.sendMessage(CharacterCMD.mess("&8[&a*&8] &eYour current profession is &6&lThief&7. \n&8[&a*&8] &eYou can now &clockpick things and walk faster while sneaking"));
+              p.removePotionEffect(PotionEffectType.FAST_DIGGING);
               Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " group remove soldier");
+              Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " group remove fisherman");
               return;
             } 
             if (API.getProfession(p).equalsIgnoreCase("Fisherman")) { 
               p.sendMessage(CharacterCMD.mess("&8[&a*&8] &eYour current profession is &6&lFisherman&7."));
+              p.removePotionEffect(PotionEffectType.FAST_DIGGING);
               Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " group remove soldier");
-              return;
-            } 
-            if (API.getProfession(p).equalsIgnoreCase("Miner")) {
-              p.sendMessage(CharacterCMD.mess("&8[&a*&8] &eYour current profession is &6&lMiner&7. &eYou now have &cpermanant haste I"));
-              PotionEffect haste1 = new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 0);
-              p.addPotionEffect(haste1);
-              Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " group remove soldier");
+              Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " group add fisherman");
               return;
             }
-            if (API.getProfession(p).equalsIgnoreCase("Baker")) {
-                p.sendMessage(CharacterCMD.mess("&8[&a*&8] &eYour current profession is &6&lBaker&7. &eYou can now &ccraft dough as a more efficient way of making bread"));
+            if (API.getProfession(p).equalsIgnoreCase("Farmer")) { 
+                p.sendMessage(CharacterCMD.mess("&8[&a*&8] &eYour current profession is &6&lFarmer&7. \n&8[&a*&8] &eYou can now &cautoharvest with a hoe"));
+                p.removePotionEffect(PotionEffectType.FAST_DIGGING);
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " group remove soldier");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " group remove fisherman");
+                return;
+              }
+            if (API.getProfession(p).equalsIgnoreCase("Miner")) {
+            	p.sendMessage(CharacterCMD.mess("&8[&a*&8] &eYour current profession is &6&lMiner&7. \n&8[&a*&8] &eYou now have &cpermanant haste I"));
+            	p.addPotionEffect(haste1);
+              	Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " group remove soldier");
+              	Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " group remove fisherman");
+              	return;
+            }
+            if (API.getProfession(p).equalsIgnoreCase("Baker")) {
+            	p.sendMessage(CharacterCMD.mess("&8[&a*&8] &eYour current profession is &6&lBaker&7. \n&8[&a*&8] &eYou can &ccraft &eBaker's Dough &cand &eBaker's Bread"));
+            	p.removePotionEffect(PotionEffectType.FAST_DIGGING);
+            	Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " group remove soldier");
+            	Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " group remove fisherman");
                 return;
             }
             if (API.getProfession(p).equalsIgnoreCase("Soldier")) {
-                p.sendMessage(CharacterCMD.mess("&8[&a*&8] &eYour current profession is &6&lSoldier&7. &eYou now have access to &c/kit soldier"));
+                p.sendMessage(CharacterCMD.mess("&8[&a*&8] &eYour current profession is &6&lSoldier&7. \n&8[&a*&8] &eYou have access to &c/kit soldier"));
+                p.removePotionEffect(PotionEffectType.FAST_DIGGING);
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " group add soldier");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " group remove fisherman");
                 return;
             }
           }

@@ -13,3 +13,5 @@ commands:
     description: Look at your UUID
   profession:
     description: Shortcut for professions
+  fishing:
+    description: Commands for the fishing profession

@@ -25,7 +25,7 @@ public class Profession implements CommandExecutor {
 		Player player = (Player) sender;
 		if (args.length == 0) {
 			player.sendMessage(mess(
-					"&7[&c*&7] &7You must enter a &eProfession&7! &7(&eBaker&7,&eFarmer&7,&eMiner&7,&eSoldier&7,&eThief&7)"));
+					"&7[&c*&7] &7You must enter a &eProfession&7! &7(&eBaker&7,&eFarmer&7,&eFisherman&7,&eMiner&7,&eSoldier&7,&eThief&7)"));
 			return true;
 		}
 		if (args.length == 1) {
@@ -60,6 +60,19 @@ public class Profession implements CommandExecutor {
 					}
 					return true;
 				}
+				if (args[0].equalsIgnoreCase("fisherman")) {
+		              player.sendMessage(mess("&7[&a*&7] &7You chose the &eFisherman &7profession!"));
+		              File f = new File("plugins" + File.separator + "ICCards" + File.separator + "users" + File.separator + player.getPlayer().getUniqueId() + ".yml");
+		              YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(f);
+		              yamlConfiguration.set("Profession", "Fisherman");
+		              Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " group remove soldier");
+		              try {
+		                yamlConfiguration.save(f);
+		              } catch (IOException e) {
+		                e.printStackTrace();
+		              } 
+		              return true;
+		        }
 				if (args[0].equalsIgnoreCase("miner")) {
 					player.sendMessage(mess("&7[&a*&7] &7You chose the &eMiner &7profession!"));
 					File f = new File("plugins" + File.separator + "ICCards" + File.separator + "users" + File.separator
