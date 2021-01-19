@@ -14,12 +14,12 @@ public class ProfessionTabCompletion implements TabCompleter {
 		List<String> completions = new ArrayList<>();
 
 		if (args.length == 1) {
-			completions.add("Baker");
-			completions.add("Farmer");
-			completions.add("Fisherman");
-			completions.add("Miner");
-			completions.add("Soldier");
-			completions.add("Thief");
+			completions.add("baker");
+			completions.add("farmer");
+			completions.add("fisherman");
+			completions.add("miner");
+			completions.add("soldier");
+			completions.add("thief");
 			return completions;
 		}
 

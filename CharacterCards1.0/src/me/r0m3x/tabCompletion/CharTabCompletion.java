@@ -14,19 +14,19 @@ public class CharTabCompletion implements TabCompleter {
 		List<String> completions = new ArrayList<>();
 
 		if (args.length == 1) {
-			completions.add("Name");
-			completions.add("Gender");
-			completions.add("Age");
-			completions.add("Desc");
-			completions.add("Profession");
-			completions.add("View");
+			completions.add("name");
+			completions.add("gender");
+			completions.add("age");
+			completions.add("desc");
+			completions.add("profession");
+			completions.add("view");
 
 			return completions;
 		}
 		
 		if (args.length == 2 && args[0].toUpperCase().contentEquals("GENDER")) {
-			completions.add("Male");
-			completions.add("Female");
+			completions.add("male");
+			completions.add("female");
 
 			return completions;
 		}
@@ -40,12 +40,12 @@ public class CharTabCompletion implements TabCompleter {
 		}
 		
 		if (args.length == 2 && args[0].toUpperCase().contentEquals("PROFESSION")) {
-			completions.add("Thief");
-			completions.add("Farmer");
-			completions.add("Fisherman");
-			completions.add("Miner");
-			completions.add("Soldier");
-			completions.add("Baker");
+			completions.add("thief");
+			completions.add("farmer");
+			completions.add("fisherman");
+			completions.add("miner");
+			completions.add("soldier");
+			completions.add("baker");
 
 			return completions;
 		}
