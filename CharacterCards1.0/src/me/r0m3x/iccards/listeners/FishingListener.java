@@ -13,13 +13,13 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerFishEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import me.r0m3x.iccards.API;
 import me.r0m3x.iccards.Main;
 import me.r0m3x.iccards.cmds.CharacterCMD;
+import net.md_5.bungee.api.ChatColor;
 
 public class FishingListener implements Listener {
 
@@ -33,12 +33,53 @@ public class FishingListener implements Listener {
 	}
 
 	public static void checkFish(Player p, Item item) {
+		Random rand = new Random();
+		int chance = rand.nextInt(100) + 1;
+		
+		if (chance == 1) {
+			ItemStack is = item.getItemStack();
+			is.setType(Material.SALMON);
+			ItemMeta meta = is.getItemMeta();
+			meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&4&lLegendary Salmon"));
+			ArrayList<String> lore = new ArrayList<String>();
+			int length = rand.nextInt(30) + 40; // random between 40-60
+			double weight = round(rand.nextDouble() * ((Double.valueOf(length) / 1.8) - (Double.valueOf(length) / 3.0))
+					+ Double.valueOf(length) / 1.8, 2);
+			double worth = round((weight * Double.valueOf(length) / 100), 1);
+			lore.add("Length: " + String.valueOf(length) + "\"");
+			lore.add("Weight: " + String.valueOf(weight) + " lbs");
+			lore.add("Worth: $" + String.valueOf(worth));
+			lore.add(CharacterCMD.mess("Type &e&o/fishing sellall &5&oto sell your fish"));
+			meta.setLore(lore);
+			is.setItemMeta(meta);
+			item.setItemStack(is);
+			return;
+		}
+		if (chance == 2) {
+			ItemStack is = item.getItemStack();
+			is.setType(Material.COD);
+			ItemMeta meta = is.getItemMeta();
+			meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&4&lLegendary Cod"));
+			ArrayList<String> lore = new ArrayList<String>();
+			int length = rand.nextInt(30) + 40; // random between 40-60
+			double weight = round(rand.nextDouble() * ((Double.valueOf(length) / 1.8) - (Double.valueOf(length) / 3.0))
+					+ Double.valueOf(length) / 1.8, 2);
+			double worth = round((weight * Double.valueOf(length) / 115), 1);
+			lore.add("Length: " + String.valueOf(length) + "\"");
+			lore.add("Weight: " + String.valueOf(weight) + " lbs");
+			lore.add("Worth: $" + String.valueOf(worth));
+			lore.add(CharacterCMD.mess("Type &e&o/fishing sellall &5&oto sell your fish"));
+			meta.setLore(lore);
+			is.setItemMeta(meta);
+			item.setItemStack(is);
+			return;
+		}
 		// Cod catch
+		
 		if (item.getItemStack().getType().equals(Material.COD)) {
 			ItemStack is = item.getItemStack();
 			ItemMeta meta = is.getItemMeta();
 			ArrayList<String> lore = new ArrayList<String>();
-			Random rand = new Random();
 			int length = rand.nextInt(28) + 4; // random between 4-32
 			double weight = round(rand.nextDouble() * ((Double.valueOf(length) / 1.8) - (Double.valueOf(length) / 3.0))
 					+ Double.valueOf(length) / 1.8, 2);
@@ -58,7 +99,6 @@ public class FishingListener implements Listener {
 			ItemStack is = item.getItemStack();
 			ItemMeta meta = is.getItemMeta();
 			ArrayList<String> lore = new ArrayList<String>();
-			Random rand = new Random();
 			int length = rand.nextInt(36) + 4; // random between 4-40
 			double weight = round(rand.nextDouble() * ((Double.valueOf(length) / 1.8) - (Double.valueOf(length) / 3.0))
 					+ Double.valueOf(length) / 1.8, 2);
@@ -78,7 +118,6 @@ public class FishingListener implements Listener {
 			ItemStack is = item.getItemStack();
 			ItemMeta meta = is.getItemMeta();
 			ArrayList<String> lore = new ArrayList<String>();
-			Random rand = new Random();
 			int length = rand.nextInt(18) + 4; // random between 4-22
 			double weight = round(rand.nextDouble() * ((Double.valueOf(length) / 1.8) - (Double.valueOf(length) / 3.0))
 					+ Double.valueOf(length) / 1.8, 2);
@@ -98,7 +137,6 @@ public class FishingListener implements Listener {
 			ItemStack is = item.getItemStack();
 			ItemMeta meta = is.getItemMeta();
 			ArrayList<String> lore = new ArrayList<String>();
-			Random rand = new Random();
 			int length = rand.nextInt(24) + 4; // random between 4-28
 			double weight = round(rand.nextDouble() * ((Double.valueOf(length) / 1.8) - (Double.valueOf(length) / 3.0))
 					+ Double.valueOf(length) / 1.8, 2);
@@ -120,9 +158,9 @@ public class FishingListener implements Listener {
 		Player p = e.getPlayer();
 		if (API.getProfession(p).equalsIgnoreCase("Fisherman")) {
 			if (e.getCaught() instanceof Item) {
-				Item item = (Item) e.getCaught();
+				//Item item = (Item) e.getCaught();
 
-				checkFish(p, item);
+				//checkFish(p, item);
 
 				new BukkitRunnable() {
 					Item item = null;

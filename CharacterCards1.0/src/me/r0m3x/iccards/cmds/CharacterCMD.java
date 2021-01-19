@@ -169,7 +169,7 @@ public class CharacterCMD implements CommandExecutor {
         return true;
       } 
       if (args[0].equalsIgnoreCase("profession") && args.length == 2) {
-        if (API.getProfession(player).isEmpty()) {
+        if (API.getProfessionChanges(player).contentEquals("0") || API.getProfessionChanges(player).contentEquals("1")) {
           if (args[1].equalsIgnoreCase("baker")) {
             player.sendMessage(mess("&7[&a*&7] &7You chose the &eBaker &7profession!"));
             File f = new File("plugins" + File.separator + "ICCards" + File.separator + "users" + File.separator + player.getPlayer().getUniqueId() + ".yml");

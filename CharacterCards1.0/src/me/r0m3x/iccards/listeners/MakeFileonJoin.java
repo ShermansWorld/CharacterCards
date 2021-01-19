@@ -23,6 +23,7 @@ public class MakeFileonJoin implements Listener {
         yamlConfiguration.set("Age", "");
         yamlConfiguration.set("Physical Description", "");
         yamlConfiguration.set("Profession", "");
+        yamlConfiguration.set("Profession-Changes", "0");
         yamlConfiguration.save(f);
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + e.getPlayer().getName() + " group remove soldier");
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + e.getPlayer().getName() + " group remove fisherman");

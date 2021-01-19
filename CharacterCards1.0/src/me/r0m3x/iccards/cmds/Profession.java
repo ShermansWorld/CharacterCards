@@ -29,7 +29,7 @@ public class Profession implements CommandExecutor {
 			return true;
 		}
 		if (args.length == 1) {
-			if (API.getProfession(player).isEmpty()) {
+			if (API.getProfessionChanges(player).equalsIgnoreCase("0") || API.getProfessionChanges(player).equalsIgnoreCase("1")) {
 				if (args[0].equalsIgnoreCase("baker")) {
 					player.sendMessage(mess("&7[&a*&7] &7You chose the &eBaker &7profession!"));
 					File f = new File("plugins" + File.separator + "ICCards" + File.separator + "users" + File.separator
@@ -91,6 +91,7 @@ public class Profession implements CommandExecutor {
 					return true;
 				}
 				if (args[0].equalsIgnoreCase("soldier")) {
+					player.sendMessage(mess("&7[&a*&7] &7You chose the &eSoldier &7profession!"));
 					File f = new File("plugins" + File.separator + "ICCards" + File.separator + "users" + File.separator
 							+ player.getPlayer().getUniqueId() + ".yml");
 					YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(f);
