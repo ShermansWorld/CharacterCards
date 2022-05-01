@@ -1,0 +1,14 @@
+name: CharacterCards
+main: me.ShermansWorld.CharacterCards.Main
+version: 1.0
+api-version: 1.18
+author: ShermansWorld
+description: A character card plugin designed for RPG servers
+commands:
+  character:
+    description: Base command for character cards
+    aliases: [char]
+  charactercards:
+    description: Base command for admins
+  uuid:
+    description: Look at your UUID
