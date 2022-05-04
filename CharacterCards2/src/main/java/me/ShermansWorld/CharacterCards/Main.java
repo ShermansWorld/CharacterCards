@@ -24,6 +24,7 @@ public class Main extends JavaPlugin {
 	Calendar now = Calendar.getInstance();
 
 	int year = this.now.get(1);
+	public static boolean usingTowny = false;
 
 	PluginDescriptionFile pdf = getDescription();
 
@@ -48,6 +49,13 @@ public class Main extends JavaPlugin {
 		this.pm.registerEvents((Listener) new MakeFileonJoin(), (Plugin) this);
 		this.pm.registerEvents((Listener) new PlayerInteractEntity(), (Plugin) this);
 	}
+	
+	private void initHooks() {
+		if (Bukkit.getServer().getPluginManager().getPlugin("Towny") != null) {
+			usingTowny = true;
+			Bukkit.getLogger().info("[CharacterCards] Towny detected! Enabling support...");
+		}
+	}
 
 	public static Main getInstance() {
 		return instance;
@@ -65,6 +73,7 @@ public class Main extends JavaPlugin {
     registerEvents();
     registerCommands();
     registerTabCompletion();
+    initHooks();
   }
 
 }

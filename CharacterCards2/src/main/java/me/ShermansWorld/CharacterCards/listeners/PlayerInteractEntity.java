@@ -10,6 +10,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.inventory.EquipmentSlot;
 
+import com.palmergames.bukkit.towny.TownyAPI;
+import com.palmergames.bukkit.towny.exceptions.NotRegisteredException;
+import com.palmergames.bukkit.towny.exceptions.TownyException;
+
+import me.ShermansWorld.CharacterCards.Main;
 import me.ShermansWorld.CharacterCards.config.ConfigVals;
 
 public class PlayerInteractEntity implements Listener {
@@ -43,6 +48,16 @@ public class PlayerInteractEntity implements Listener {
 					player.sendMessage(mess("&3Age &8- &b" + yamlConfiguration.get("Age")));
 				} else {
 					player.sendMessage(mess("&3Age &8- &bEmpty"));
+				}
+				if (Main.usingTowny && ConfigVals.integrateTowny) { // display the player's town/nation if they are in one
+					try {
+						player.sendMessage(mess("&3Town&8 - &b" + TownyAPI.getInstance().getResident(player).getTown().getName()));
+					} catch (NotRegisteredException e2) {
+					}
+					try {
+						player.sendMessage(mess("&3Nation&8 - &b" + TownyAPI.getInstance().getResident(player).getNation().getName()));
+					} catch (TownyException e2) {
+					}
 				}
 				player.sendMessage(
 						mess("&8&l&m----------&7[&3" + target.getPlayer().getName() + "'s Desc&7]&8&l&m----------"));
@@ -79,6 +94,16 @@ public class PlayerInteractEntity implements Listener {
 					player.sendMessage(mess("&3Age &8- &b" + yamlConfiguration.get("Age")));
 				} else {
 					player.sendMessage(mess("&3Age &8- &bEmpty"));
+				}
+				if (Main.usingTowny && ConfigVals.integrateTowny) { // display the player's town/nation if they are in one
+					try {
+						player.sendMessage(mess("&3Town&8 - &b" + TownyAPI.getInstance().getResident(player).getTown().getName()));
+					} catch (NotRegisteredException e2) {
+					}
+					try {
+						player.sendMessage(mess("&3Nation&8 - &b" + TownyAPI.getInstance().getResident(player).getNation().getName()));
+					} catch (TownyException e2) {
+					}
 				}
 				player.sendMessage(
 						mess("&8&l&m----------&7[&3" + target.getPlayer().getName() + "'s Desc&7]&8&l&m----------"));

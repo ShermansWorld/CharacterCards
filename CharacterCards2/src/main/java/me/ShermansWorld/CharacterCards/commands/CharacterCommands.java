@@ -11,6 +11,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
+import com.palmergames.bukkit.towny.TownyAPI;
+import com.palmergames.bukkit.towny.exceptions.NotRegisteredException;
+import com.palmergames.bukkit.towny.exceptions.TownyException;
+
 import me.ShermansWorld.CharacterCards.Main;
 import me.ShermansWorld.CharacterCards.config.ConfigVals;
 
@@ -40,7 +44,7 @@ public class CharacterCommands implements CommandExecutor {
 			if (args == null || args.length == 0) {
 				player.sendMessage(mess(
 						"&8&l&m--------------&7[&3CharacterCards &7v&b" + this.version + "&7]&8&l&m--------------\n"));
-				player.sendMessage(mess("&7/&3Char Name &7<&bFirst&7> &7{&bLast&7} &8- &3Set your character's name."));
+				player.sendMessage(mess("&7/&3Char Name &7<&bFirst&7> &7{&bLast&7} &7{&bTitle&7} &8- &3Set your character's name."));
 				player.sendMessage(
 						mess("&7/&3Char Gender &7<&bMale&7/&bFemale/&bOther&7> &8- &3Set your character's gender."));
 				player.sendMessage(mess("&7/&3Char Age &7<&b" + String.valueOf(ConfigVals.minAge) + "&7-&b"
@@ -53,7 +57,7 @@ public class CharacterCommands implements CommandExecutor {
 			if (args[0].equalsIgnoreCase("help") && args.length == 1) {
 				player.sendMessage(mess(
 						"&8&l&m--------------&7[&3CharacterCards &7v&b" + this.version + "&7]&8&l&m--------------\n"));
-				player.sendMessage(mess("&7/&3Char Name &7<&bFirst&7> &7{&bLast&7} &8- &3Set your character's name."));
+				player.sendMessage(mess("&7/&3Char Name &7<&bFirst&7> &7{&bLast&7} &7{&bTitle&7} &8- &3Set your character's name."));
 				player.sendMessage(
 						mess("&7/&3Char Gender &7<&bMale&7/&bFemale/&bOther&7> &8- &3Set your character's gender."));
 				player.sendMessage(mess("&7/&3Char Age &7<&b" + String.valueOf(ConfigVals.minAge) + "&7-&b"
@@ -63,9 +67,9 @@ public class CharacterCommands implements CommandExecutor {
 				player.sendMessage(mess("&8&l&m---------------------------------------------"));
 				return true;
 			}
-			if (args[0].equalsIgnoreCase("name") && args.length > 3) {
+			if (args[0].equalsIgnoreCase("name") && args.length > 4) {
 				player.sendMessage(
-						mess("&7[&c*&7] &cToo many args! &eUsage&7: &7/&cChar Name &7<&cFirst&7> &7{&cLast&7}"));
+						mess("&7[&c*&7] &cToo many args! &eUsage&7: &7/&cChar Name &7<&cFirst&7> &7{&cLast&7} &7{&cTitle&7}"));
 				return true;
 			}
 			if (args[0].equalsIgnoreCase("name") && args.length >= 2) {
@@ -74,13 +78,21 @@ public class CharacterCommands implements CommandExecutor {
 				YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(f);
 				String first_name = args[1].toString();
 				String last_name = "null";
+				String title = "null";
 				if (args.length == 3) {
 					last_name = args[2].toString();
+				} else if (args.length == 4) {
+					last_name = args[2].toString();
+					title = args[3].toString();
 				}
-				if (last_name.equalsIgnoreCase("null"))
+				if (last_name.equalsIgnoreCase("null")) {
 					last_name = "";
+				}
+				if (title.equalsIgnoreCase("null")) {
+					title = "";
+				}
 				if (checkcolorperms(player, first_name) && checkcolorperms(player, last_name)) {
-					yamlConfiguration.set("Name", first_name + " " + last_name);
+					yamlConfiguration.set("Name", first_name + " " + last_name + " " + title);
 					player.sendMessage(mess("&7[&a*&7] &3Name set as: &e" + yamlConfiguration.get("Name")));
 					try {
 						yamlConfiguration.save(f);
@@ -262,6 +274,16 @@ public class CharacterCommands implements CommandExecutor {
 								player.sendMessage(mess("&3Age &8- &b" + yamlConfiguration.get("Age")));
 							} else {
 								player.sendMessage(mess("&3Age &8- &bEmpty"));
+							}
+							if (Main.usingTowny && ConfigVals.integrateTowny) { // display the player's town/nation if they are in one
+								try {
+									player.sendMessage(mess("&3Town&8 - &b" + TownyAPI.getInstance().getResident(player).getTown().getName()));
+								} catch (NotRegisteredException e) {
+								}
+								try {
+									player.sendMessage(mess("&3Nation&8 - &b" + TownyAPI.getInstance().getResident(player).getNation().getName()));
+								} catch (TownyException e) {
+								}
 							}
 							player.sendMessage(
 									mess("&8&l&m-----------&7[&3" + player.getName() + "'s Desc&7]&8&l&m-----------"));

@@ -15,6 +15,9 @@ public class ConfigVals {
 	public static boolean shiftRightClick = true;
 	public static boolean paperRightClick = true;
 	
+	// hooks
+	public static boolean integrateTowny = true;
+	
 	public static void initConfigVals() {
 		
 		// config version
@@ -27,5 +30,8 @@ public class ConfigVals {
 		// interaction settings
 		shiftRightClick = Main.getInstance().getConfig().getBoolean("ShiftRightClick");
 		paperRightClick = Main.getInstance().getConfig().getBoolean("RightClickPaper");
+		
+		// hooks
+		integrateTowny = Main.getInstance().getConfig().getBoolean("IntegrateTowny");
 	}
 }
