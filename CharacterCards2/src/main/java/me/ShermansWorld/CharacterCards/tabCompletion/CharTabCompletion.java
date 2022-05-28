@@ -48,6 +48,12 @@ public class CharTabCompletion implements TabCompleter {
 			}
 			return completions;
 		}
+		
+		if (args.length == 2 && args[0].toUpperCase().contentEquals("DESC")) {
+			completions.add("Add");
+			completions.add("Clear");
+			return completions;
+		}
 
 		return Collections.emptyList();
 	}

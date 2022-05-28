@@ -6,6 +6,8 @@ import java.util.Calendar;
 import me.ShermansWorld.CharacterCards.commands.CharacterCommands;
 import me.ShermansWorld.CharacterCards.commands.CharacterCardsCommands;
 import me.ShermansWorld.CharacterCards.commands.UUID;
+import me.ShermansWorld.CharacterCards.config.ConfigVals;
+import me.ShermansWorld.CharacterCards.lang.Languages;
 import me.ShermansWorld.CharacterCards.listeners.MakeFileonJoin;
 import me.ShermansWorld.CharacterCards.listeners.PlayerInteractEntity;
 import me.ShermansWorld.CharacterCards.tabCompletion.CharTabCompletion;
@@ -25,6 +27,9 @@ public class Main extends JavaPlugin {
 
 	int year = this.now.get(1);
 	public static boolean usingTowny = false;
+	public static boolean usingMythicalRaces = false;
+	public static boolean usingKonquest = false;
+	public static boolean usingMagic = false;
 
 	PluginDescriptionFile pdf = getDescription();
 
@@ -55,6 +60,30 @@ public class Main extends JavaPlugin {
 			usingTowny = true;
 			Bukkit.getLogger().info("[CharacterCards] Towny detected! Enabling support...");
 		}
+		if (Bukkit.getServer().getPluginManager().getPlugin("MythicalRaces") != null) {
+			usingMythicalRaces = true;
+			Bukkit.getLogger().info("[CharacterCards] Mythical Races detected! Enabling support...");
+		}
+		if (Bukkit.getServer().getPluginManager().getPlugin("Konquest") != null) {
+			usingKonquest = true;
+			Bukkit.getLogger().info("[CharacterCards] Konquest detected! Enabling support...");
+		}
+		if (Bukkit.getServer().getPluginManager().getPlugin("Magic") != null) {
+			usingMagic = true;
+			Bukkit.getLogger().info("[CharacterCards] Magic detected! Enabling support...");
+		}
+	}
+	
+	public static void initData() {
+		File usersfolder = new File("plugins" + File.separator + "CharacterCards" + File.separator + "users");
+	    if (!usersfolder.exists()) {
+	    	usersfolder.mkdirs();
+	    }
+	    File langFolder = new File("plugins" + File.separator + "CharacterCards" + File.separator + "lang");
+	    if (!langFolder.exists()) {
+	    	langFolder.mkdirs();
+	    }
+	    Languages.initLangs();
 	}
 
 	public static Main getInstance() {
@@ -65,10 +94,8 @@ public class Main extends JavaPlugin {
 		
 	instance = this;
 	this.saveDefaultConfig();
-	
-    File usersfolder = new File("plugins" + File.separator + "CharacterCards" + File.separator + "users");
-    if (!usersfolder.exists())
-      usersfolder.mkdirs();
+	initData();
+	ConfigVals.initConfigVals();
     
     registerEvents();
     registerCommands();
