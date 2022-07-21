@@ -10,3 +10,7 @@ as well as allowing them to set an overview for their own character. Character c
 ## Translations
 
 If you would like to translate CharacterCards into another language post a Github issue with the title [LANG]. I will try to incorporate all translations into the plugin itself
+
+## Spigot
+
+More information including commands, permissions, hooks and more can be found on the spigot page: https://www.spigotmc.org/resources/charactercards.101760/
