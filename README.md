@@ -1,5 +1,5 @@
 # CharacterCards
-# Version 1.4
+# Version 2.1
 
 CharacterCards is heavily inspired by ICCards, originally developed by r0m3x/Explode in May of 2017.
 
