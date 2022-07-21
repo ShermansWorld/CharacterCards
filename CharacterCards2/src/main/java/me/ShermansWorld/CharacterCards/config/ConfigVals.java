@@ -23,6 +23,7 @@ public class ConfigVals {
 	public static boolean integrateTowny = true;
 	public static boolean integrateMythicalRaces = true;
 	public static boolean integrateKonquest = true;
+	public static boolean integrateMagic = true;
 	
 	public static void initConfigVals() {
 		
@@ -45,5 +46,6 @@ public class ConfigVals {
 		integrateTowny = Main.getInstance().getConfig().getBoolean("IntegrateTowny");
 		integrateMythicalRaces = Main.getInstance().getConfig().getBoolean("IntegrateMythicalRaces");
 		integrateKonquest = Main.getInstance().getConfig().getBoolean("IntegrateKonquest");
+		integrateMagic = Main.getInstance().getConfig().getBoolean("IntegrateMagic");
 	}	
 }

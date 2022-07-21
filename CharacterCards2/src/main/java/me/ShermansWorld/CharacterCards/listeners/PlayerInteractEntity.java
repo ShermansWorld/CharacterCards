@@ -14,6 +14,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import me.ShermansWorld.CharacterCards.Main;
 import me.ShermansWorld.CharacterCards.config.ConfigVals;
 import me.ShermansWorld.CharacterCards.hooks.KonquestHook;
+import me.ShermansWorld.CharacterCards.hooks.MagicHook;
 import me.ShermansWorld.CharacterCards.hooks.MythicalRacesHook;
 import me.ShermansWorld.CharacterCards.hooks.TownyHook;
 import me.ShermansWorld.CharacterCards.lang.Languages;
@@ -74,6 +75,9 @@ public class PlayerInteractEntity implements Listener {
 				if (Main.usingKonquest && ConfigVals.integrateKonquest) {
 					KonquestHook.displayKonquestInfo(player, target);
 				}
+				if (Main.usingMagic && ConfigVals.integrateMagic) {
+					MagicHook.getMagicRank(player, target);
+				}
 				String msg2 = lang.getString("Cards.Desc");
 				if (msg2.contains("@PLAYER")) {
 					msg2 = msg2.replaceAll("@PLAYER", target.getName());
@@ -131,6 +135,9 @@ public class PlayerInteractEntity implements Listener {
 				}
 				if (Main.usingKonquest && ConfigVals.integrateKonquest) {
 					KonquestHook.displayKonquestInfo(player, target);
+				}
+				if (Main.usingMagic && ConfigVals.integrateMagic) {
+					MagicHook.getMagicRank(player, target);
 				}
 				String msg2 = lang.getString("Cards.Desc");
 				if (msg2.contains("@PLAYER")) {
