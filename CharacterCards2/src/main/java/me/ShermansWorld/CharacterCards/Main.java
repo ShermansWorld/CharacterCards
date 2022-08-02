@@ -6,7 +6,7 @@ import java.util.Calendar;
 import me.ShermansWorld.CharacterCards.commands.CharacterCommands;
 import me.ShermansWorld.CharacterCards.commands.CharacterCardsCommands;
 import me.ShermansWorld.CharacterCards.commands.UUID;
-import me.ShermansWorld.CharacterCards.config.ConfigVals;
+import me.ShermansWorld.CharacterCards.config.Config;
 import me.ShermansWorld.CharacterCards.lang.Languages;
 import me.ShermansWorld.CharacterCards.listeners.MakeFileonJoin;
 import me.ShermansWorld.CharacterCards.listeners.PlayerInteractEntity;
@@ -30,6 +30,7 @@ public class Main extends JavaPlugin {
 	public static boolean usingMythicalRaces = false;
 	public static boolean usingKonquest = false;
 	public static boolean usingMagic = false;
+	public static boolean usingPAPI = false;
 
 	PluginDescriptionFile pdf = getDescription();
 
@@ -72,6 +73,10 @@ public class Main extends JavaPlugin {
 			usingMagic = true;
 			Bukkit.getLogger().info("[CharacterCards] Magic detected! Enabling support...");
 		}
+		if (Bukkit.getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
+			usingPAPI = true;
+			Bukkit.getLogger().info("[CharacterCards] PlaceholderAPI (PAPI) detected! Enabling support...");
+		}
 	}
 	
 	public static void initData() {
@@ -95,12 +100,11 @@ public class Main extends JavaPlugin {
 	instance = this;
 	this.saveDefaultConfig();
 	initData();
-	ConfigVals.initConfigVals();
-    
     registerEvents();
     registerCommands();
     registerTabCompletion();
     initHooks();
+    Config.initConfigVals();
   }
 
 }

@@ -7,7 +7,7 @@ import org.bukkit.plugin.Plugin;
 import com.elmakers.mine.bukkit.api.magic.Mage;
 import com.elmakers.mine.bukkit.api.magic.MagicAPI;
 
-import me.ShermansWorld.CharacterCards.commands.CharacterCommands;
+import me.ShermansWorld.CharacterCards.Helper;
 
 public class MagicHook {
 	
@@ -30,7 +30,7 @@ public class MagicHook {
 		if (mage.getActiveClass().getPath() != null) {
 			String rank = mage.getActiveClass().getPath().getName();
 			rank = rank.substring(2); // returns "&7 + Rank" so "&7" needs to be removed
-			player.sendMessage(CharacterCommands.mess("&3Mage Level&8 - &b" + rank));
+			player.sendMessage(Helper.color("&3Mage Level&8 - &b" + rank));
 		}
 	}
 	
@@ -42,7 +42,7 @@ public class MagicHook {
 		if (mage.getActiveClass().getPath() != null) {
 			String rank = mage.getActiveClass().getPath().getName();
 			rank = rank.substring(2); // returns "&7 + Rank" so "&7" needs to be removed
-			player.sendMessage(CharacterCommands.mess("&3Mage Level&8 - &b" + rank));
+			player.sendMessage(Helper.color("&3Mage Level&8 - &b" + rank));
 		}
 	}
 	
@@ -54,7 +54,7 @@ public class MagicHook {
 		if (mage.getActiveClass().getPath() != null) {
 			String rank = mage.getActiveClass().getPath().getName();
 			rank = rank.substring(2); // returns "&7 + Rank" so "&7" needs to be removed
-			player.sendMessage(CharacterCommands.mess("&3Mage Level&8 - &b" + rank));
+			player.sendMessage(Helper.color("&3Mage Level&8 - &b" + rank));
 		}
 	}
 }

@@ -6,7 +6,7 @@ import java.io.IOException;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import me.ShermansWorld.CharacterCards.config.ConfigVals;
+import me.ShermansWorld.CharacterCards.config.Config;
 
 public class Languages {
 	
@@ -220,14 +220,14 @@ public class Languages {
 	}
 	
 	public static YamlConfiguration getLang() {
-		if (ConfigVals.lang.equalsIgnoreCase("enUs")) {
+		if (Config.lang.equalsIgnoreCase("enUs")) {
 			return getEnglish();
-		} else if (ConfigVals.lang.equalsIgnoreCase("ro")) {
+		} else if (Config.lang.equalsIgnoreCase("ro")) {
 			return getRomanian();
-		} else if (ConfigVals.lang.equalsIgnoreCase("ptBR")) {
+		} else if (Config.lang.equalsIgnoreCase("ptBR")) {
 			return getPortuguese();
 		} else {
-			File otherLang = new File("plugins" + File.separator + "CharacterCards" + File.separator + "lang" + File.separator + ConfigVals.lang);
+			File otherLang = new File("plugins" + File.separator + "CharacterCards" + File.separator + "lang" + File.separator + Config.lang);
 			return YamlConfiguration.loadConfiguration(otherLang);
 		}
 	}
