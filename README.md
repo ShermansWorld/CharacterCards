@@ -1,5 +1,5 @@
 # CharacterCards
-# Version 2.1
+# Version 2.2 for Minecraft 1.19
 
 CharacterCards is heavily inspired by ICCards, originally developed by r0m3x/Explode in May of 2017.
 
