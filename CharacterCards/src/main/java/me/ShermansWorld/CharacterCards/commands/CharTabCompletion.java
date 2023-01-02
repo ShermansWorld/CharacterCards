@@ -1,4 +1,4 @@
-package me.ShermansWorld.CharacterCards.tabCompletion;
+package me.ShermansWorld.CharacterCards.commands;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -2,15 +2,17 @@ package me.ShermansWorld.CharacterCards;
 
 import java.io.File;
 import java.util.Calendar;
+
+import me.ShermansWorld.CharacterCards.commands.CharTabCompletion;
 import me.ShermansWorld.CharacterCards.commands.CharacterCardsCommands;
+import me.ShermansWorld.CharacterCards.commands.CharacterCardsTabCompletion;
 import me.ShermansWorld.CharacterCards.commands.CharacterCommands;
 import me.ShermansWorld.CharacterCards.commands.UUID;
 import me.ShermansWorld.CharacterCards.config.Config;
 import me.ShermansWorld.CharacterCards.lang.Languages;
 import me.ShermansWorld.CharacterCards.listeners.MakeFileonJoin;
 import me.ShermansWorld.CharacterCards.listeners.PlayerInteractEntity;
-import me.ShermansWorld.CharacterCards.tabCompletion.CharTabCompletion;
-import me.ShermansWorld.CharacterCards.tabCompletion.CharacterCardsTabCompletion;
+
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.ConsoleCommandSender;
