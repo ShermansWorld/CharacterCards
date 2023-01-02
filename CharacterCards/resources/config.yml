@@ -4,7 +4,7 @@
 
 # Report bugs at https://github.com/ShermansWorld/CharacterCards
 
-config-version: 5
+config-version: 7
 
 # =====================================
 # |          LANGUAGE SETTINGS        |
@@ -33,6 +33,15 @@ MaxAge: 120
 
 DescCharLimit: 512
 # Defines how long a player's description can be. Default is 512 or 2 full chat messages
+
+CustomFields:
+  1:
+    label: '&3Balance'
+    placeholder: '&b%vault_eco_balance_formatted%'
+# You can now define as many custom fields as you want ro be added to the character cards. Number them starting with "1:"
+# To clear all custom fields replace this section with "CustomFields: []"
+# These custom fields are DEPENDENT on PlaceholderAPI (PAPI). You must have it installed for these placeholders to work!
+# To get the above placeholder to work run /papi ecloud download vault, /papi reload
 
 # =====================================
 # |         INTERACT SETTINGS         |
