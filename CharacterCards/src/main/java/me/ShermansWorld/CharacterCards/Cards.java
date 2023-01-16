@@ -54,7 +54,7 @@ public class Cards {
         KonquestHook.displayKonquestInfo(player); 
       if (Main.usingMagic && Config.integrateMagic)
         MagicHook.getMagicRank(player); 
-      if (Main.usingPAPI)
+      if (Main.usingPAPI && Config.integratePAPI)
         PAPIHook.displayCustomFields(player); 
       String msg2 = lang.getString("Cards.Desc");
       if (msg2.contains("@PLAYER"))
@@ -117,7 +117,7 @@ public class Cards {
           KonquestHook.displayKonquestInfo(player, arg); 
         if (Main.usingMagic && Config.integrateMagic)
           MagicHook.getMagicRank(player, arg); 
-        if (Main.usingPAPI)
+        if (Main.usingPAPI && Config.integratePAPI)
           PAPIHook.displayCustomFields(player, target); 
         String msg2 = lang.getString("Cards.Desc");
         if (msg2.contains("@PLAYER"))
@@ -182,7 +182,7 @@ public class Cards {
       KonquestHook.displayKonquestInfo(player, target); 
     if (Main.usingMagic && Config.integrateMagic)
       MagicHook.getMagicRank(player, target); 
-    if (Main.usingPAPI)
+    if (Main.usingPAPI && Config.integratePAPI)
       PAPIHook.displayCustomFields(player, target); 
     String msg2 = lang.getString("Cards.Desc");
     if (msg2.contains("@PLAYER"))

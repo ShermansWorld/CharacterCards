@@ -4,7 +4,7 @@
 
 # Report bugs at https://github.com/ShermansWorld/CharacterCards
 
-config-version: 7
+config-version: 8
 
 # =====================================
 # |          LANGUAGE SETTINGS        |
@@ -56,6 +56,9 @@ RightClickPaper: true
 # =====================================
 # |              HOOKS                |
 # =====================================
+
+IntegratePAPI: true
+# If your server is running PlaceholderAPI (PAPI), then the custom fields feature will be enabled and added to the player's card
 
 IntegrateTowny: true
 # If your server is running Towny then a player's Town/Nation is added to their character card
