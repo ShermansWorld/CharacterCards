@@ -1,6 +1,6 @@
 name: CharacterCards
 main: me.ShermansWorld.CharacterCards.Main
-version: 2.2.1
+version: 2.2.2
 api-version: 1.19
 author: ShermansWorld
 softdepend: [Towny, MythicalRaces, Konquest, Magic, PlaceholderAPI]
