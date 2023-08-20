@@ -2,6 +2,7 @@ package me.ShermansWorld.CharacterCards.hooks;
 
 import java.util.Map.Entry;
 
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 import me.ShermansWorld.CharacterCards.Helper;
@@ -18,14 +19,17 @@ public class PAPIHook {
 			}
 		}
 	}
-	
-	public static void displayCustomFields(Player player, Player target) {
-		if (Config.usingCustomFields) {
-			for (Entry<String, String> entry : Config.customFieldsMap.entrySet()) {
-				String fieldLabel = entry.getKey();
-				String fieldPlaceholder = PlaceholderAPI.setPlaceholders(target, entry.getValue());
-				player.sendMessage(Helper.color(fieldLabel + " &8- " + fieldPlaceholder));
+
+	public static void displayCustomFields(Player player, OfflinePlayer target) {
+		try {
+			if (Config.usingCustomFields) {
+				for (Entry<String, String> entry : Config.customFieldsMap.entrySet()) {
+					String fieldLabel = entry.getKey();
+					String fieldPlaceholder = PlaceholderAPI.setPlaceholders(target, entry.getValue());
+					player.sendMessage(Helper.color(fieldLabel + " &8- " + fieldPlaceholder));
+				}
 			}
+		} catch (NullPointerException e2) {
 		}
 	}
 }

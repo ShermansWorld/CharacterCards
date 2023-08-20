@@ -1,5 +1,6 @@
 package me.ShermansWorld.CharacterCards.hooks;
 
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 import com.palmergames.bukkit.towny.TownyAPI;
@@ -22,28 +23,15 @@ public class TownyHook {
 		}
 	}
 
-	public static void displayTownyInfo(Player player, String playerName) {
+	public static void displayTownyInfo(Player player, OfflinePlayer target) {
 		try {
 			player.sendMessage(
-					Helper.color("&3Town&8 - &b" + TownyAPI.getInstance().getResident(playerName).getTown().getName()));
-		} catch (NotRegisteredException e) {
-		}
-		try {
-			player.sendMessage(Helper
-					.color("&3Nation&8 - &b" + TownyAPI.getInstance().getResident(playerName).getNation().getName()));
-		} catch (TownyException e) {
-		}
-	}
-
-	public static void displayTownyInfo(Player player, Player target) {
-		try {
-			player.sendMessage(
-					Helper.color("&3Town&8 - &b" + TownyAPI.getInstance().getResident(target).getTown().getName()));
+					Helper.color("&3Town&8 - &b" + TownyAPI.getInstance().getResident(target.getUniqueId()).getTown().getName()));
 		} catch (NotRegisteredException e2) {
 		}
 		try {
 			player.sendMessage(
-					Helper.color("&3Nation&8 - &b" + TownyAPI.getInstance().getResident(target).getNation().getName()));
+					Helper.color("&3Nation&8 - &b" + TownyAPI.getInstance().getResident(target.getUniqueId()).getNation().getName()));
 		} catch (TownyException e2) {
 		}
 	}

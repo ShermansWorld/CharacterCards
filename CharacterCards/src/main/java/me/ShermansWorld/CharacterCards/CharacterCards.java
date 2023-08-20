@@ -1,7 +1,6 @@
 package me.ShermansWorld.CharacterCards;
 
 import java.io.File;
-import java.util.Calendar;
 
 import me.ShermansWorld.CharacterCards.commands.CharTabCompletion;
 import me.ShermansWorld.CharacterCards.commands.CharacterCardsCommands;
@@ -23,10 +22,7 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Main extends JavaPlugin {
-  Calendar now = Calendar.getInstance();
-  
-  int year = this.now.get(1);
+public class CharacterCards extends JavaPlugin {
   
   public static boolean usingTowny = false;
   
@@ -44,7 +40,7 @@ public class Main extends JavaPlugin {
   
   ConsoleCommandSender cs = Bukkit.getConsoleSender();
   
-  public static Main instance = null;
+  public static CharacterCards instance = null;
   
   private void registerCommands() {
     getCommand("Character").setExecutor((CommandExecutor)new CharacterCommands(this));
@@ -95,7 +91,7 @@ public class Main extends JavaPlugin {
     Languages.initLangs();
   }
   
-  public static Main getInstance() {
+  public static CharacterCards getInstance() {
     return instance;
   }
   

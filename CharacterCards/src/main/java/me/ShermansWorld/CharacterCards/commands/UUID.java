@@ -7,10 +7,10 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.ShermansWorld.CharacterCards.Main;
+import me.ShermansWorld.CharacterCards.CharacterCards;
 
 public class UUID implements CommandExecutor {
-  public UUID(Main plugin) {}
+  public UUID(CharacterCards plugin) {}
   
   public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
     Player p = (Player)sender;

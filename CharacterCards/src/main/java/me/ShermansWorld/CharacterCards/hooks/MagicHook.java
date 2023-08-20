@@ -1,6 +1,7 @@
 package me.ShermansWorld.CharacterCards.hooks;
 
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
@@ -34,27 +35,22 @@ public class MagicHook {
 		}
 	}
 	
-	public static void getMagicRank(Player player, String playerName) {
-		if (magicAPI == null) {
-			initMagicAPI();
-		}
-		Mage mage = magicAPI.getController().getMage(Bukkit.getPlayer(playerName));
-		if (mage.getActiveClass().getPath() != null) {
-			String rank = mage.getActiveClass().getPath().getName();
-			rank = rank.substring(2); // returns "&7 + Rank" so "&7" needs to be removed
-			player.sendMessage(Helper.color("&3Mage Level&8 - &b" + rank));
-		}
-	}
-	
-	public static void getMagicRank(Player player, Player target) {
-		if (magicAPI == null) {
-			initMagicAPI();
-		}
-		Mage mage = magicAPI.getController().getMage(target);
-		if (mage.getActiveClass().getPath() != null) {
-			String rank = mage.getActiveClass().getPath().getName();
-			rank = rank.substring(2); // returns "&7 + Rank" so "&7" needs to be removed
-			player.sendMessage(Helper.color("&3Mage Level&8 - &b" + rank));
+	public static void getMagicRank(Player player, OfflinePlayer target) {
+		try {
+			Player targetPlayer;
+			if (magicAPI == null) {
+				initMagicAPI();
+			}
+			if (target.isOnline()) {
+				targetPlayer = (Player) target;
+				Mage mage = magicAPI.getController().getMage(targetPlayer);
+				if (mage.getActiveClass().getPath() != null) {
+					String rank = mage.getActiveClass().getPath().getName();
+					rank = rank.substring(2); // returns "&7 + Rank" so "&7" needs to be removed
+					player.sendMessage(Helper.color("&3Mage Level&8 - &b" + rank));
+				}
+			}
+		} catch (NullPointerException e2) {
 		}
 	}
 }

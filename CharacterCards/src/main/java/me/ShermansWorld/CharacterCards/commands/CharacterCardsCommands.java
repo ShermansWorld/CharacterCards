@@ -8,7 +8,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
 import me.ShermansWorld.CharacterCards.Helper;
-import me.ShermansWorld.CharacterCards.Main;
+import me.ShermansWorld.CharacterCards.CharacterCards;
 import me.ShermansWorld.CharacterCards.config.Config;
 import me.ShermansWorld.CharacterCards.lang.Languages;
 
@@ -16,7 +16,7 @@ public class CharacterCardsCommands implements CommandExecutor {
 	String version = Bukkit.getPluginManager().getPlugin("CharacterCards").getDescription().getVersion();
 	YamlConfiguration lang = Languages.getLang();
 
-	public CharacterCardsCommands(Main plugin) {
+	public CharacterCardsCommands(CharacterCards plugin) {
 	}
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -42,8 +42,8 @@ public class CharacterCardsCommands implements CommandExecutor {
 					player.sendMessage(Helper.color("&7[&3CharacterCards&7] " + lang.getString("NoPermission")));
 					return false;
 				}
-				Main.getInstance().reloadConfig();
-				Main.getInstance().saveDefaultConfig();
+				CharacterCards.getInstance().reloadConfig();
+				CharacterCards.getInstance().saveDefaultConfig();
 				Config.initConfigVals();
 				player.sendMessage(Helper.color("&7[&3CharacterCards&7] " + lang.getString("CharacterCardsCommands.ReloadSuccess")));
 				return true;

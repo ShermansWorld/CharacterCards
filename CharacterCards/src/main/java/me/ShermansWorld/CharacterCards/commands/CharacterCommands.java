@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -12,7 +13,7 @@ import org.bukkit.entity.Player;
 
 import me.ShermansWorld.CharacterCards.Cards;
 import me.ShermansWorld.CharacterCards.Helper;
-import me.ShermansWorld.CharacterCards.Main;
+import me.ShermansWorld.CharacterCards.CharacterCards;
 import me.ShermansWorld.CharacterCards.config.Config;
 import me.ShermansWorld.CharacterCards.lang.Languages;
 
@@ -20,7 +21,7 @@ public class CharacterCommands implements CommandExecutor {
 	String version = Bukkit.getPluginManager().getPlugin("CharacterCards").getDescription().getVersion();
 	YamlConfiguration lang = Languages.getLang();
 
-	public CharacterCommands(Main plugin) {
+	public CharacterCommands(CharacterCards plugin) {
 	}
 
 	public boolean checkcolorperms(Player player, String argument) {
@@ -299,16 +300,20 @@ public class CharacterCommands implements CommandExecutor {
 						Helper.color("&7[&a*&7] " + lang.getString("CharacterCommands.DescSuccess") + ": &7" + desc));
 				return true;
 			}
+			// View command run with not enough arguments
 			if (args[0].equalsIgnoreCase("view") && args.length > 2) {
 				player.sendMessage(Helper.color("&7[&c*&7] " + lang.getString("CharacterCommands.ViewError1")));
 				return false;
 			}
+			// View your own character card
 			if (args[0].equalsIgnoreCase("view") && args.length == 1) {
 				return Cards.displayCard(player);
 			}
+			// View another player's character card
 			if (args[0].equalsIgnoreCase("view") && args.length == 2) {
-				Player target = Bukkit.getPlayerExact(args[1]);
-				return Cards.displayCard(player, target, args[1]);
+				String targetArg = args[1];
+				OfflinePlayer target = Bukkit.getOfflinePlayer(targetArg);
+				return Cards.displayCard(player, target, targetArg);
 			}
 			player.sendMessage(Helper.color("&7[&3CharacterCards&7] " + lang.getString("CharacterCommands.Invalid")));
 			return false;
