@@ -123,7 +123,6 @@ public class Cards {
 			return false;
 		} catch (NumberFormatException | NullPointerException e) {
 			player.sendMessage(Helper.color("&7[&c*&7] " + lang.getString("CharacterCommands.ViewError2")));
-			e.printStackTrace();
 			return false;
 		}
 	}

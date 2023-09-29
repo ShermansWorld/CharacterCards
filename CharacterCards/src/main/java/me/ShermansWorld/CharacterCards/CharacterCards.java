@@ -98,11 +98,11 @@ public class CharacterCards extends JavaPlugin {
   public void onEnable() {
     instance = this;
     saveDefaultConfig();
+    Config.initConfigVals();
     initData();
     registerEvents();
     registerCommands();
     registerTabCompletion();
     initHooks();
-    Config.initConfigVals();
   }
 }

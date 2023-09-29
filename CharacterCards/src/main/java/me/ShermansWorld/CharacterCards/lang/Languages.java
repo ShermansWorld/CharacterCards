@@ -25,10 +25,10 @@ public class Languages {
 			yamlConfiguration.set("CharacterCardsCommands", null);
 			yamlConfiguration.set("CharacterCardsCommands.Reload", "&3Reloads the config.yml");
 			yamlConfiguration.set("CharacterCardsCommands.ReloadSuccess", "&econfig.yml reloaded");
-			yamlConfiguration.set("CharacterCommands.NameHelp", "&7<&bFirst&7> &7{&bLast&7} &7{&bTitle&7} &8- &3Set your character's name.");
-			yamlConfiguration.set("CharacterCommands.GenderHelp", "&7<&bMale&7/&bFemale/&bOther&7> &8- &3Set your character's gender.");
+			yamlConfiguration.set("CharacterCommands.NameHelp", "&7<&bFirst&7> &7{&bLast&7} &7{&bTitle&7} &8- &3Set your character's name");
+			yamlConfiguration.set("CharacterCommands.GenderHelp", "&7<&bMale&7/&bFemale/&bOther&7> &8- &3Set your character's gender");
 			yamlConfiguration.set("CharacterCommands.AgeHelp", "&3Set your character's age.");
-			yamlConfiguration.set("CharacterCommands.DescHelp", "&7<&bDescription&7> &8- &3Set your character's description.");
+			yamlConfiguration.set("CharacterCommands.DescHelp", "&7<&bDescription&7> &8- &3Set your character's description");
 			yamlConfiguration.set("CharacterCommands.ViewHelp", "&7{&bPlayer&7} &8- &3View your card, or another player's!");
 			yamlConfiguration.set("CharacterCommands.NameError1", "&cToo many args! &eUsage&7: &7/&cChar Name &7<&cFirst&7> &7{&cLast&7} &7{&cTitle&7}");
 			yamlConfiguration.set("CharacterCommands.NameError2", "&cYou must enter a name!");
@@ -39,7 +39,7 @@ public class Languages {
 			yamlConfiguration.set("CharacterCommands.GenderSuccess1", "&3Gender set as: &eMale");
 			yamlConfiguration.set("CharacterCommands.GenderSuccess2", "&3Gender set as: &eFemale");
 			yamlConfiguration.set("CharacterCommands.GenderSuccess3", "&3Gender set as: &eOther");
-			yamlConfiguration.set("CharacterCommands.AgeError1", "&cYou must enter a age! Usage&7: &7/&cChar Age [age]");
+			yamlConfiguration.set("CharacterCommands.AgeError1", "&cYou must enter an age! Usage&7: &7/&cChar Age [age]");
 			yamlConfiguration.set("CharacterCommands.AgeError2", "&cToo many args! &eUsage: &7/&cChar Age [age]");
 			yamlConfiguration.set("CharacterCommands.AgeError3", "&7Age must be");
 			yamlConfiguration.set("CharacterCommands.AgeSuccess", "&3Age set as");
@@ -49,7 +49,7 @@ public class Languages {
 			yamlConfiguration.set("CharacterCommands.DescCleared", "&aDescription cleared");
 			yamlConfiguration.set("CharacterCommands.ViewError1", "&cToo many args! &eUsage&7: &7/&cChar View &8<&cPlayer&8>");
 			yamlConfiguration.set("CharacterCommands.ViewError2", "&cThis card does not exist! Was it recently deleted?");
-			yamlConfiguration.set("CharacterCommands.ViewError3", "&7is not online/has never joined before&3.");
+			yamlConfiguration.set("CharacterCommands.ViewError3", "&7is not online/has never joined before");
 			yamlConfiguration.set("CharacterCommands.Invalid", "&cInvalid Command");
 			yamlConfiguration.set("CharacterCommands.DeleteSuccess", "@PLAYER's &aconfiguration file has been deleted!");
 			yamlConfiguration.set("CharacterCommands.DeleteError1", "@PLAYER's &cconfiguration file doesn't exist!");
@@ -111,7 +111,7 @@ public class Languages {
 			yamlConfiguration.set("CharacterCommands.DescCleared", "&aDescrierea ștearsă");
 			yamlConfiguration.set("CharacterCommands.ViewError1", "&cPrea multe argumente! &eFolosește&7: &7/&cchar view &8<&cJucător&8>");
 			yamlConfiguration.set("CharacterCommands.ViewError2", "&cAcest personaj nu există. A fost șters înainte?");
-			yamlConfiguration.set("CharacterCommands.ViewError3", "&7nu este online&3");
+			yamlConfiguration.set("CharacterCommands.ViewError3", "&7nu este online");
 			yamlConfiguration.set("CharacterCommands.Invalid", "&c&cComandă invalidă");
 			yamlConfiguration.set("CharacterCommands.DeleteSuccess", "@PLAYER &aconfigurație ștearsă!");
 			yamlConfiguration.set("CharacterCommands.DeleteError1", "@PLAYER &cconfigurația nu există!");
@@ -174,7 +174,7 @@ public class Languages {
 			yamlConfiguration.set("CharacterCommands.DescCleared", "&aDescrição limpa");
 			yamlConfiguration.set("CharacterCommands.ViewError1", "&cMuitos argumentos! &eUse&7: &7/&cChar View &8<&cJogador&8>");
 			yamlConfiguration.set("CharacterCommands.ViewError2", "&cEste cartão não existe! Foi deletado recentemente?");
-			yamlConfiguration.set("CharacterCommands.ViewError3", "&7não está online/nunca entrou antes&3");
+			yamlConfiguration.set("CharacterCommands.ViewError3", "&7não está online/nunca entrou antes");
 			yamlConfiguration.set("CharacterCommands.Invalid", "&cComando inválido");
 			yamlConfiguration.set("CharacterCommands.DeleteSuccess", "@PLAYER''s &aarquivo de configuração foi deletado!");
 			yamlConfiguration.set("CharacterCommands.DeleteError1", "@PLAYER''s &carquivo de configuração não existe!");
@@ -213,7 +213,7 @@ public class Languages {
 			yamlConfiguration.set("CharacterCardsCommands", null);
 			yamlConfiguration.set("CharacterCardsCommands.Reload", "&3Recharge la config.yml");
 			yamlConfiguration.set("CharacterCardsCommands.ReloadSuccess", "&econfig.yml rechargé");
-			yamlConfiguration.set("CharacterCommands.NameHelp", "&7<&bPrénom&7> &7{&bDernier&7} &7{&bTitre&7} &8- &3Définissez le nom de votre personnage.");
+			yamlConfiguration.set("CharacterCommands.NameHelp", "&7<&bPrénom&7> &7{&bDernier&7} &7{&bTitre&7} &8- &3Définissez le nom de votre personnage");
 			yamlConfiguration.set("CharacterCommands.GenderHelp", "&7<&bMale&7/&bFemale/&bOther&7> &8- &3Définir le sexe de votre personnage");
 			yamlConfiguration.set("CharacterCommands.AgeHelp", "&3Définir l'âge de vos personnage.");
 			yamlConfiguration.set("CharacterCommands.DescHelp", "&7<&bDescription&7> &8- &3Définissez la description de vos personnage");
@@ -237,7 +237,7 @@ public class Languages {
 			yamlConfiguration.set("CharacterCommands.DescCleared", "&aDescription effacée");
 			yamlConfiguration.set("CharacterCommands.ViewError1", "&cTrop d'arguments! &eUsage&7: &7/&cChar View &8<&cJoueur&8>");
 			yamlConfiguration.set("CharacterCommands.ViewError2", "&cCette carte n'existe pas! A-t-il été supprimé récemment?");
-			yamlConfiguration.set("CharacterCommands.ViewError3", "&7n'est pas en ligne/n'a jamais adhéré auparavant&3.");
+			yamlConfiguration.set("CharacterCommands.ViewError3", "&7n'est pas en ligne/n'a jamais adhéré auparavant");
 			yamlConfiguration.set("CharacterCommands.Invalid", "&cCommande non valide");
 			yamlConfiguration.set("CharacterCommands.DeleteSuccess", "@PLAYER''s &afichier de configuration supprimé!");
 			yamlConfiguration.set("CharacterCommands.DeleteError1", "@PLAYER''s &cfichier de configuration n'existe pas!");
