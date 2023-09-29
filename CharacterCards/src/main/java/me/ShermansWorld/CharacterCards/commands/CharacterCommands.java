@@ -102,7 +102,7 @@ public class CharacterCommands implements CommandExecutor {
 					try {
 						yamlConfiguration.save(f);
 					} catch (IOException e) {
-						e.printStackTrace();
+						return false;
 					}
 					return true;
 				}
@@ -129,7 +129,7 @@ public class CharacterCommands implements CommandExecutor {
 					try {
 						yamlConfiguration.save(f);
 					} catch (IOException e) {
-						e.printStackTrace();
+						return false;
 					}
 					return true;
 				}
@@ -143,7 +143,7 @@ public class CharacterCommands implements CommandExecutor {
 					try {
 						yamlConfiguration.save(f);
 					} catch (IOException e) {
-						e.printStackTrace();
+						return false;
 					}
 					return true;
 				}
@@ -157,7 +157,7 @@ public class CharacterCommands implements CommandExecutor {
 					try {
 						yamlConfiguration.save(f);
 					} catch (IOException e) {
-						e.printStackTrace();
+						return false;
 					}
 					return true;
 				}
@@ -228,7 +228,7 @@ public class CharacterCommands implements CommandExecutor {
 						yamlConfiguration.save(f);
 						return true;
 					} catch (IOException e) {
-						e.printStackTrace();
+						return false;
 					}
 				} else {
 					player.sendMessage(Helper.color("&7[&c*&7] " + lang.getString("CharacterCommands.AgeError3") + " "

@@ -198,10 +198,73 @@ public class Languages {
 		}
 	}
 	
+	public static void initFrench() {
+		File french = new File("plugins" + File.separator + "CharacterCards" + File.separator + "lang" + File.separator + "fr.yml");
+		if (!french.exists()) {
+			try {
+				french.createNewFile();
+			} catch (IOException e) {
+				Bukkit.getLogger().warning("[CharacterCards] Error when creating language file 'fr'");
+			}
+			YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(french);
+			yamlConfiguration.set("NoPermission", "&cVous n'avez pas la permission de faire cela");
+			yamlConfiguration.set("NoColors", "&cVous ne pouvez pas utiliser de couleurs!");
+			yamlConfiguration.set("EmptyField", "Vide ");
+			yamlConfiguration.set("CharacterCardsCommands", null);
+			yamlConfiguration.set("CharacterCardsCommands.Reload", "&3Recharge la config.yml");
+			yamlConfiguration.set("CharacterCardsCommands.ReloadSuccess", "&econfig.yml rechargé");
+			yamlConfiguration.set("CharacterCommands.NameHelp", "&7<&bPrénom&7> &7{&bDernier&7} &7{&bTitre&7} &8- &3Définissez le nom de votre personnage.");
+			yamlConfiguration.set("CharacterCommands.GenderHelp", "&7<&bMale&7/&bFemale/&bOther&7> &8- &3Définir le sexe de votre personnage");
+			yamlConfiguration.set("CharacterCommands.AgeHelp", "&3Définir l'âge de vos personnage.");
+			yamlConfiguration.set("CharacterCommands.DescHelp", "&7<&bDescription&7> &8- &3Définissez la description de vos personnage");
+			yamlConfiguration.set("CharacterCommands.ViewHelp", "&7{&bJoueur&7} &8- &3Visualisez votre carte ou celle d'un autre joueur!");
+			yamlConfiguration.set("CharacterCommands.NameError1", "&cTrop d'arguments! &eUsage&7: &7/&cChar Name &7<&cPrénom&7> &7{&cDernier&7} &7{&cTitre&7}");
+			yamlConfiguration.set("CharacterCommands.NameError2", "&cVous devez entrer un nom!");
+			yamlConfiguration.set("CharacterCommands.NameSuccess", "&3Nom défini comme");
+			yamlConfiguration.set("CharacterCommands.GenderError1", "&cVous devez définir un sexe! &7(&eMale&7/&eFemale/&eOther&7)");
+			yamlConfiguration.set("CharacterCommands.GenderError2", "&cTrop d'arguments! &eUsage&7: &7/&cChar Gender &7(&cMale &7ou &cFemale &7ou &cOther)");
+			yamlConfiguration.set("CharacterCommands.GenderError3", "&cVous dois être: Male&7/&cFemale&7/&cOther");
+			yamlConfiguration.set("CharacterCommands.GenderSuccess1", "&3Sexe défini comme: &eMâle");
+			yamlConfiguration.set("CharacterCommands.GenderSuccess2", "&3Sexe défini comme: &eFemelle");
+			yamlConfiguration.set("CharacterCommands.GenderSuccess3", "&3Sexe défini comme: &eAutre");
+			yamlConfiguration.set("CharacterCommands.AgeError1", "&cVous devez définir un âge! Usage&7: &7/&cChar Age [âge]");
+			yamlConfiguration.set("CharacterCommands.AgeError2", "&cTrop d'arguments! &eUsage: &7/&cChar Age [âge]");
+			yamlConfiguration.set("CharacterCommands.AgeError3", "&7L'âge doit être");
+			yamlConfiguration.set("CharacterCommands.AgeSuccess", "&3Âge fixé comme");
+			yamlConfiguration.set("CharacterCommands.DescError1", "&cVous devez définir une description!");
+			yamlConfiguration.set("CharacterCommands.DescError2", "&cDescription est trop grande!");
+			yamlConfiguration.set("CharacterCommands.DescSuccess", "&3Description définie comme");
+			yamlConfiguration.set("CharacterCommands.DescCleared", "&aDescription effacée");
+			yamlConfiguration.set("CharacterCommands.ViewError1", "&cTrop d'arguments! &eUsage&7: &7/&cChar View &8<&cJoueur&8>");
+			yamlConfiguration.set("CharacterCommands.ViewError2", "&cCette carte n'existe pas! A-t-il été supprimé récemment?");
+			yamlConfiguration.set("CharacterCommands.ViewError3", "&7n'est pas en ligne/n'a jamais adhéré auparavant&3.");
+			yamlConfiguration.set("CharacterCommands.Invalid", "&cCommande non valide");
+			yamlConfiguration.set("CharacterCommands.DeleteSuccess", "@PLAYER''s &afichier de configuration supprimé!");
+			yamlConfiguration.set("CharacterCommands.DeleteError1", "@PLAYER''s &cfichier de configuration n'existe pas!");
+			yamlConfiguration.set("CharacterCommands.DeleteError2", " &cn'est pas en ligne!");
+			yamlConfiguration.set("CharacterCommands.DeleteError3", "&cVous devez entrer le &enom d'un &ajoueur");
+			yamlConfiguration.set("Cards", null);
+			yamlConfiguration.set("Cards.Name", "Nom");
+			yamlConfiguration.set("Cards.Gender", "Sexe");
+			yamlConfiguration.set("Cards.Age", "Âge");
+			yamlConfiguration.set("Cards.Desc", "@PLAYER''s Desc");
+			yamlConfiguration.set("Cards.Card", "@PLAYER''s Carte");
+			yamlConfiguration.set("Cards.Male", "Mâle ");
+			yamlConfiguration.set("Cards.Female", "Femelle ");
+			yamlConfiguration.set("Cards.Other", "Autre ");
+			try {
+				yamlConfiguration.save(french);
+			} catch (IOException e) {
+				Bukkit.getLogger().warning("[CharacterCards] Error when saving language file 'fr'");
+			}
+		}
+	}
+	
 	public static void initLangs() {
 		initEnglish();
 		initRomanian();
 		initPortuguese();
+		initFrench();
 	}
 	
 	public static YamlConfiguration getEnglish() {
@@ -219,6 +282,11 @@ public class Languages {
 		return YamlConfiguration.loadConfiguration(portuguese);
 	}
 	
+	public static YamlConfiguration getFrench() {
+		File french = new File("plugins" + File.separator + "CharacterCards" + File.separator + "lang" + File.separator + "fr.yml");
+		return YamlConfiguration.loadConfiguration(french);
+	}
+	
 	public static YamlConfiguration getLang() {
 		if (Config.lang.equalsIgnoreCase("enUs")) {
 			return getEnglish();
@@ -226,6 +294,8 @@ public class Languages {
 			return getRomanian();
 		} else if (Config.lang.equalsIgnoreCase("ptBR")) {
 			return getPortuguese();
+		} else if (Config.lang.equalsIgnoreCase("fr")) {
+			return getFrench();
 		} else {
 			File otherLang = new File("plugins" + File.separator + "CharacterCards" + File.separator + "lang" + File.separator + Config.lang);
 			return YamlConfiguration.loadConfiguration(otherLang);

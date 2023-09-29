@@ -15,7 +15,12 @@ config-version: 8
 # You can also create a new language file locally and it will most likely work. Make sure to follow the spacing and general format!
 
 lang: "enUS"
-# Possible languages: "enUS" for English (United States), "ro" for Romanian, "ptBR" for Brazilian Portuguese
+# Possible languages: 
+#  "enUS" for English (United States)
+#  "ro" for Romanian
+#  "ptBR" for Brazilian Portuguese
+#  "fr" for French
+
 # Changing languages requires a server restart
 
 # =====================================
