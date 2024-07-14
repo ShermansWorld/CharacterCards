@@ -47,20 +47,21 @@ public class Config {
 		integrateMagic = CharacterCards.getInstance().getConfig().getBoolean("IntegrateMagic");
 		integratePAPI = CharacterCards.getInstance().getConfig().getBoolean("IntegratePAPI");
 		if (CharacterCards.usingPAPI && integratePAPI) {
-			int customFieldLen = CharacterCards.getInstance().getConfig().getConfigurationSection("CustomFields").getKeys(false).size();
-			if (customFieldLen > 0) {
-				usingCustomFields = true;
-				Bukkit.getLogger().info("[CharacterCards] Custom Fields detected! Loading...");
-				for (int i = 1; i <= customFieldLen; i++) {
-					String label = CharacterCards.getInstance().getConfig()
-							.getString("CustomFields." + String.valueOf(i) + ".label");
-					String placeholder = CharacterCards.getInstance().getConfig()
-							.getString("CustomFields." + String.valueOf(i) + ".placeholder");
-					customFieldsMap.put(label, placeholder);
-				}
-				Bukkit.getLogger().info(
-						"[CharacterCards] Successfully loaded " + String.valueOf(customFieldLen) + " custom fields");
+			if (CharacterCards.getInstance().getConfig().getConfigurationSection("CustomFields") == null) {
+				usingCustomFields = false;
+				return;
 			}
+			int customFieldLen = CharacterCards.getInstance().getConfig().getConfigurationSection("CustomFields").getKeys(false).size();
+			usingCustomFields = true;
+			Bukkit.getLogger().info("[CharacterCards] Custom Fields detected! Loading...");
+			for (int i = 1; i <= customFieldLen; i++) {
+				String label = CharacterCards.getInstance().getConfig()
+				String placeholder = CharacterCards.getInstance().getConfig()
+						.getString("CustomFields." + String.valueOf(i) + ".placeholder");
+				customFieldsMap.put(label, placeholder);
+			}
+			Bukkit.getLogger().info(
+					"[CharacterCards] Successfully loaded " + String.valueOf(customFieldLen) + " custom fields");
 		}
 	}
 }
