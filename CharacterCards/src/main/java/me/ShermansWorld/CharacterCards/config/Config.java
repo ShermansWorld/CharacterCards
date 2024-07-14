@@ -47,8 +47,7 @@ public class Config {
 		integrateMagic = CharacterCards.getInstance().getConfig().getBoolean("IntegrateMagic");
 		integratePAPI = CharacterCards.getInstance().getConfig().getBoolean("IntegratePAPI");
 		if (CharacterCards.usingPAPI && integratePAPI) {
-			int customFieldLen = CharacterCards.getInstance().getConfig().getConfigurationSection("CustomFields").getKeys(false)
-					.size();
+			int customFieldLen = CharacterCards.getInstance().getConfig().getConfigurationSection("CustomFields").getKeys(false).size();
 			if (customFieldLen > 0) {
 				usingCustomFields = true;
 				Bukkit.getLogger().info("[CharacterCards] Custom Fields detected! Loading...");

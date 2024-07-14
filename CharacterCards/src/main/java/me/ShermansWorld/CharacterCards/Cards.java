@@ -26,7 +26,7 @@ public class Cards {
 				msg = msg.replaceAll("@PLAYER", player.getName());
 			int titleLen = msg.length() + 22;
 			player.sendMessage(Helper.color("&8&l&m-----------&7[&3" + msg + "&7]&8&l&m-----------"));
-			player.sendMessage(Helper.color("&3IGN &8- &b" + player.getName());
+			player.sendMessage(Helper.color("&3IGN &8- &b" + player.getName()));
 			if (!yamlConfiguration.getString("Name").isEmpty()) {
 				player.sendMessage(
 						Helper.color("&3" + lang.getString("Cards.Name") + " &8- &b" + yamlConfiguration.get("Name")));

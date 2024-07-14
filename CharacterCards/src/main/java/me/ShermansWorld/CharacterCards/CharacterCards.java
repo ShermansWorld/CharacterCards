@@ -58,7 +58,7 @@ public class CharacterCards extends JavaPlugin {
     this.pm.registerEvents((Listener)new PlayerInteractEntity(), (Plugin)this);
   }
   
-  private void initHooks() {
+  private void initHooksFlags() {
     if (Bukkit.getServer().getPluginManager().getPlugin("Towny") != null) {
       usingTowny = true;
       Bukkit.getLogger().info("[CharacterCards] Towny detected! Enabling support...");
@@ -82,9 +82,9 @@ public class CharacterCards extends JavaPlugin {
   }
   
   public static void initData() {
-    File usersfolder = new File("plugins" + File.separator + "CharacterCards" + File.separator + "users");
-    if (!usersfolder.exists())
-      usersfolder.mkdirs(); 
+    File usersFolder = new File("plugins" + File.separator + "CharacterCards" + File.separator + "users");
+    if (!usersFolder.exists())
+      usersFolder.mkdirs();
     File langFolder = new File("plugins" + File.separator + "CharacterCards" + File.separator + "lang");
     if (!langFolder.exists())
       langFolder.mkdirs(); 
@@ -97,12 +97,12 @@ public class CharacterCards extends JavaPlugin {
   
   public void onEnable() {
     instance = this;
+    initHooksFlags();
     saveDefaultConfig();
     Config.initConfigVals();
     initData();
     registerEvents();
     registerCommands();
     registerTabCompletion();
-    initHooks();
   }
 }
