@@ -14,14 +14,9 @@ public class MakeFileonJoin implements Listener {
     File f = new File("plugins" + File.separator + "CharacterCards" + File.separator + "users" + File.separator + e.getPlayer().getUniqueId() + ".yml");
     YamlConfiguration yamlConfiguration = YamlConfiguration.loadConfiguration(f);
     
-    if (! (e.getPlayer().getName().equals(yamlConfiguration.get("IGN")))) { // update IGN if player changes their username 
-    	yamlConfiguration.set("IGN", e.getPlayer().getName());
-    }
-    
     if (!f.exists())
       try {
         f.createNewFile();
-        yamlConfiguration.set("IGN", e.getPlayer().getName());
         yamlConfiguration.set("Name", "");
         yamlConfiguration.set("Gender", "");
         yamlConfiguration.set("Age", "");
