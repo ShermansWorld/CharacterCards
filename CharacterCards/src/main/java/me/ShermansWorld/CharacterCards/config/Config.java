@@ -56,6 +56,7 @@ public class Config {
 			Bukkit.getLogger().info("[CharacterCards] Custom Fields detected! Loading...");
 			for (int i = 1; i <= customFieldLen; i++) {
 				String label = CharacterCards.getInstance().getConfig()
+						.getString("CustomFields." + String.valueOf(i) + ".label");
 				String placeholder = CharacterCards.getInstance().getConfig()
 						.getString("CustomFields." + String.valueOf(i) + ".placeholder");
 				customFieldsMap.put(label, placeholder);
